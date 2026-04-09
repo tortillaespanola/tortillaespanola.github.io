@@ -7,18 +7,18 @@
     <style>
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-            background-color: #ffffff; /* FONDO BLANCO */
-            color: #000000; /* LETRA NEGRA */
+            background-color: #ffffff; 
+            color: #000000; 
             text-align: center; 
             padding: 50px 20px; 
             line-height: 1.6; 
         }
         .container { max-width: 500px; margin: auto; }
         
-        .logo-main { width: 100px; margin-bottom: 20px; border-radius: 50%; border: 1px solid #eee; }
+        .logo-main { width: 100px; margin-bottom: 20px; border-radius: 50%; }
         
         h1 { 
-            font-size: 18px; 
+            font-size: 16px; 
             font-weight: 700; 
             margin-bottom: 50px; 
             letter-spacing: 3px; 
@@ -44,7 +44,7 @@
         
         .section p { 
             font-size: 14px; 
-            color: #444; /* Un gris oscuro para que sea legible pero suave */
+            color: #555; 
             margin: 0 auto 25px auto; 
             font-style: italic; 
             max-width: 90%; 
@@ -52,26 +52,24 @@
 
         .icon-row { 
             display: flex; 
-            gap: 35px; 
+            gap: 40px; 
             justify-content: center; 
             align-items: center; 
         }
         
         .icon-link { 
-            transition: transform 0.2s, filter 0.2s; 
+            transition: transform 0.2s; 
             display: inline-block; 
+            text-decoration: none;
         }
         
         .icon-link:hover { 
             transform: scale(1.15); 
         }
         
-        /* Un pequeño detalle: si quieres que los iconos sean blanco y negro 
-           hasta que pases el ratón, dímelo. De momento los dejamos en color 
-           para que se reconozcan rápido. */
         .icon-link img { 
-            width: 32px; 
-            height: 32px; 
+            width: 35px; 
+            height: auto; 
         }
 
     </style>
@@ -86,8 +84,12 @@
             <h2>ESPAÑOLA</h2>
             <p>Raw, intimate, and a bit reckless. This is the pulse behind the pans—the underground sounds that fueled the project and keep the kitchen alive. Flip it, fry it, feel it.</p>
             <div class="icon-row">
-                <a href="https://open.spotify.com/playlist/5EQHKVR6vCAg1BYUvZab5H?si=c0D7xQXuQV6uw-BsX5Rx5w" class="icon-link" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify"></a>
-                <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PdY27EsqFlJaiYgb8_cwEsK&si=eFvlgOeJDfqQ60Q7" class="icon-link" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/YouTube_the_full-color_icon_%282017%29.svg" alt="YouTube"></a>
+                <a href="https://open.spotify.com/playlist/5EQHKVR6vCAg1BYUvZab5H?si=c0D7xQXuQV6uw-BsX5Rx5w" class="icon-link" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify">
+                </a>
+                <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PdY27EsqFlJaiYgb8_cwEsK&si=eFvlgOeJDfqQ60Q7" class="icon-link" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+                </a>
             </div>
         </div>
 
@@ -95,8 +97,12 @@
             <h2>Ñ-Bonus-tracks</h2>
             <p>Data breach: The Ñ hidden B-sides. Out of place.</p>
             <div class="icon-row">
-                <a href="https://open.spotify.com/playlist/2iMYMQNeT5LB7RmpBgjXag?si=1HZB5deyRiW8xMo8vshJWw" class="icon-link" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify"></a>
-                <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PfoKqLTcsx-HquH24rXY_5e&si=Ikg3Ln4VqYR3oWRR" class="icon-link" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/YouTube_the_full-color_icon_%282017%29.svg" alt="YouTube"></a>
+                <a href="https://open.spotify.com/playlist/2iMYMQNeT5LB7RmpBgjXag?si=1HZB5deyRiW8xMo8vshJWw" class="icon-link" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify">
+                </a>
+                <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PfoKqLTcsx-HquH24rXY_5e&si=Ikg3Ln4VqYR3oWRR" class="icon-link" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+                </a>
             </div>
         </div>
 
@@ -104,8 +110,12 @@
             <h2>Ñ-Vintage</h2>
             <p>Analog soul: tapes from another Spain.</p>
             <div class="icon-row">
-                <a href="https://open.spotify.com/playlist/3Ke8g1k9nlTbZRsbYfh7yg?si=brc_Mg8rTnaAP_cEf2tQ6w" class="icon-link" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify"></a>
-                <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PdOMIMoPn9h8INBzKFgx8HD&si=QHhHgKUn5J1LIUUG" class="icon-link" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/YouTube_the_full-color_icon_%282017%29.svg" alt="YouTube"></a>
+                <a href="https://open.spotify.com/playlist/3Ke8g1k9nlTbZRsbYfh7yg?si=brc_Mg8rTnaAP_cEf2tQ6w" class="icon-link" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify">
+                </a>
+                <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PdOMIMoPn9h8INBzKFgx8HD&si=QHhHgKUn5J1LIUUG" class="icon-link" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+                </a>
             </div>
         </div>
 
@@ -113,6 +123,4 @@
 
 </body>
 </html>
-
-
 
