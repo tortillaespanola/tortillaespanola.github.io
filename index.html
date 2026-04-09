@@ -5,26 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Playlist - Tortilla Española</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #121212; color: white; text-align: center; padding: 20px; }
-        .container { max-width: 650px; margin: auto; }
-        .playlist-card { margin-bottom: 30px; border-radius: 15px; overflow: hidden; background: #1ed760; padding: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        h1 { margin-bottom: 30px; color: #1ed760; }
-        h3 { color: #121212; margin: 10px 0; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #121212; color: white; text-align: center; padding: 40px 20px; }
+        .container { max-width: 400px; margin: auto; }
+        h1 { margin-bottom: 30px; font-size: 24px; }
+        
+        /* Estilo de los botones */
+        .btn-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #282828;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 50px;
+            transition: transform 0.2s, background-color 0.2s;
+            border: 1px solid #404040;
+        }
+
+        .btn-link:hover {
+            transform: scale(1.05);
+            background-color: #333333;
+        }
+
+        .btn-link img {
+            width: 25px;
+            margin-right: 15px;
+        }
+
+        /* Colores de acento para cada plataforma */
+        .spotify-border { border: 1px solid #1DB954; }
+        .youtube-border { border: 1px solid #FF0000; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🎧 Mis Listas de Música</h1>
+        <img src="https://github.com/tortillaespanola.png" style="width: 80px; border-radius: 50%; margin-bottom: 10px;">
+        <h1>@tortillaespanola</h1>
 
-        <div class="playlist-card">
-            <h3>Mi Selección #1</h3>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5EQHKVR6vCAg1BYUvZab5H?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
+        <a href="TU_LINK_DE_SPOTIFY_AQUÍ" class="btn-link spotify-border" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+            Lista de Spotify
+        </a>
 
-        <div class="playlist-card">
-            <h3>Mi Selección #2</h3>
-            </div>
+        <a href="TU_LINK_DE_YOUTUBE_AQUÍ" class="btn-link youtube-border" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+            Lista de YouTube
+        </a>
 
     </div>
 
