@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPAÑOLA | Pre-order</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #000000;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Space Mono', monospace;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .product-card {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background-color: #f0f0f0; /* Color temporal hasta que subas tu foto */
+            object-fit: cover;
+            margin-bottom: 20px;
+            /* Si quieres que las fotos sean B&N por defecto, descomenta la línea de abajo */
+            /* filter: grayscale(1); */
+        }
+
+        .product-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+
+        .product-meta {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .btn-order {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-order:hover {
+            transform: scale(1.05);
+        }
+
+        .info-note {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            line-height: 1.6;
+            border-top: 1px solid #000;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="/" class="back-link">← Zurück</a>
+
+        <h1>THE GOODS</h1>
+
+        <div class="product-card">
+            <img src="foto-500.jpg" alt="Tortilla 500g" class="product-image">
+            <div class="product-title">LA MEDIANA (500g)</div>
+            <span class="product-meta">Ideal for 1-2 people | CHF 22.00</span>
+            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20pre-order%20the%20500g%20tortilla." class="btn-order" target="_blank">Order via WhatsApp</a>
+        </div>
+
+        <div class="product-card">
+            <img src="foto-1000.jpg" alt="Tortilla 1kg" class="product-image">
+            <div class="product-title">LA GRANDE (1kg)</div>
+            <span class="product-meta">The masterpiece for sharing | CHF 38.00</span>
+            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20pre-order%20the%201kg%20tortilla." class="btn-order" target="_blank">Order via WhatsApp</a>
+        </div>
+
+        <div class="info-note">
+            All tortillas are made to order with local Swiss eggs and Spanish olive oil.<br>
+            Pick-up in Basel. Delivery upon request.
+        </div>
+    </div>
+
+</body>
+</html>
