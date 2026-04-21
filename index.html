@@ -77,4 +77,61 @@
         .card:hover {
             border-color: #afb8c1;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.0
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background: #ebeef2;
+        }
+
+        .card h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 0.95rem;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="logo.gif" alt="Logo Tortilla Española" class="logo-gif">
+        
+        <h1>tortillaespanola</h1>
+        <p class="description">Bienvenido a mi rincón digital.</p>
+
+        <div class="links-grid">
+            <a href="/playlists" class="card">
+                <h3>🎵 Playlists</h3>
+                <p>Mi selección musical personal y listas curadas.</p>
+            </a>
+
+            <a href="/impressum" class="card">
+                <h3>⚖️ Impressum</h3>
+                <p>Información legal y contacto de este sitio web.</p>
+            </a>
+
+            <a href="https://github.com/tortillaespanola" class="card" target="_blank">
+                <h3>💻 GitHub</h3>
+                <p>Explora mis repositorios y proyectos de código.</p>
+            </a>
+        </div>
+
+        <div class="footer">
+            &copy; 2024 tortillaespanola. Hecho con ❤️ y mucho 🥚.
+        </div>
+    </div>
+
+</body>
+</html>
