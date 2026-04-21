@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESPAÑOLA | Pre-order</title>
+    <title>ESPAÑOLA | Bestellung</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -42,37 +42,50 @@
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 2rem;
-            margin-bottom: 50px;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: -1px;
         }
 
+        .subtitle-main {
+            font-size: 0.8rem;
+            margin-bottom: 50px;
+            display: block;
+            opacity: 0.7;
+        }
+
         .product-card {
             margin-bottom: 80px;
-            text-align: center;
         }
 
         .product-image {
             width: 100%;
-            height: 300px;
-            background-color: #f0f0f0; /* Color temporal hasta que subas tu foto */
+            height: auto;
+            max-height: 400px;
+            background-color: #f0f0f0;
             object-fit: cover;
             margin-bottom: 20px;
-            /* Si quieres que las fotos sean B&N por defecto, descomenta la línea de abajo */
-            /* filter: grayscale(1); */
         }
 
         .product-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 1.4rem;
-            margin: 10px 0;
+            margin: 5px 0;
             text-transform: uppercase;
         }
 
-        .product-meta {
-            font-size: 0.9rem;
+        .product-lang-sub {
+            display: block;
+            font-size: 0.75rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .price-tag {
+            font-size: 1.1rem;
+            font-weight: 700;
             margin-bottom: 20px;
             display: block;
         }
@@ -93,39 +106,98 @@
             transform: scale(1.05);
         }
 
-        .info-note {
-            margin-top: 40px;
-            font-size: 0.75rem;
-            line-height: 1.6;
+        /* Tabla de Ingredientes */
+        .ingredients-section {
+            margin-top: 60px;
+            text-align: left;
             border-top: 1px solid #000;
-            padding-top: 20px;
+            padding-top: 30px;
+        }
+
+        .ingredients-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .ing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            font-size: 0.8rem;
+        }
+
+        .ing-item {
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 5px;
+        }
+
+        .ing-label {
+            font-weight: 700;
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: #666;
+        }
+
+        .footer-note {
+            margin-top: 50px;
+            font-size: 0.7rem;
+            line-height: 1.6;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <a href="/" class="back-link">← Zurück</a>
+        <a href="/" class="back-link">← Zurück / Back</a>
 
-        <h1>THE GOODS</h1>
+        <h1>BESTELLIG</h1>
+        <span class="subtitle-main">PRE-ORDER YOUR TORTILLA</span>
 
         <div class="product-card">
-            <img src="foto-500.jpg" alt="Tortilla 500g" class="product-image">
-            <div class="product-title">LA MEDIANA (500g)</div>
-            <span class="product-meta">Ideal for 1-2 people | CHF 22.00</span>
-            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20pre-order%20the%20500g%20tortilla." class="btn-order" target="_blank">Order via WhatsApp</a>
+            <img src="foto-500.jpg" alt="Tortilla Mediana" class="product-image">
+            <div class="product-title">LA MEDIANA</div>
+            <span class="product-lang-sub">Die Kleine für Zwischendurch / The smaller one</span>
+            <span class="price-tag">CHF 22.00</span>
+            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20order%20LA%20MEDIANA." class="btn-order" target="_blank">JETZT BSTELLÄ</a>
         </div>
 
         <div class="product-card">
-            <img src="foto-1000.jpg" alt="Tortilla 1kg" class="product-image">
-            <div class="product-title">LA GRANDE (1kg)</div>
-            <span class="product-meta">The masterpiece for sharing | CHF 38.00</span>
-            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20pre-order%20the%201kg%20tortilla." class="btn-order" target="_blank">Order via WhatsApp</a>
+            <img src="foto-1000.jpg" alt="Tortilla Grande" class="product-image">
+            <div class="product-title">LA GRANDE</div>
+            <span class="product-lang-sub">Das Meisterwerk zum Teilen / The masterpiece to share</span>
+            <span class="price-tag">CHF 38.00</span>
+            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20order%20LA%20GRANDE." class="btn-order" target="_blank">JETZT BSTELLÄ</a>
         </div>
 
-        <div class="info-note">
-            All tortillas are made to order with local Swiss eggs and Spanish olive oil.<br>
-            Pick-up in Basel. Delivery upon request.
+        <div class="ingredients-section">
+            <h2>Zutaten & Herkunft</h2>
+            <div class="ing-grid">
+                <div class="ing-item">
+                    <span class="ing-label">Kartoffeln (Agria)</span>
+                    Birsmattehof Bio-Genossenschaft, Therwil
+                </div>
+                <div class="ing-item">
+                    <span class="ing-label">Eier (IP Suisse Freiland)</span>
+                    Rieder Eier, Rothenfluh
+                </div>
+                <div class="ing-item">
+                    <span class="ing-label">Zwiebel (Gelb gross)</span>
+                    Weber Neuhof, Liestal
+                </div>
+                <div class="ing-item">
+                    <span class="ing-label">Öl & Salz</span>
+                    Natives Olivenöl extra (Spanien) & Meersalz
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Abholung in Basel nach Vereinbarung.<br>
+            Pick-up in Basel by appointment.
         </div>
     </div>
 
