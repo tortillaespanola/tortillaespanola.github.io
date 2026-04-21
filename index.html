@@ -29,35 +29,36 @@
         }
 
         .container {
+            width: 100%;
             max-width: 700px;
             padding: 40px 20px;
+            box-sizing: border-box;
         }
 
-        /* Logo 3 veces más grande */
+        /* Ajuste inteligente del Logo */
         .logo-gif {
-            width: 360px; 
+            width: 360px; /* Tamaño para laptop */
+            max-width: 85%; /* "Un dedo de respiro" en móvil (ocupa el 85% del ancho) */
             height: auto;
             margin: 0 auto 30px;
             display: block;
         }
 
-        /* Título en Montserrat Extra Bold */
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 800; /* Extra Bold */
-            font-size: 3.5rem;
+            font-weight: 800;
+            font-size: clamp(2rem, 10vw, 3.5rem); /* Se adapta al tamaño de pantalla */
             margin-bottom: 5px;
             letter-spacing: -2px;
             text-transform: uppercase;
         }
 
-        /* Subtítulo en Space Mono Bold */
         .description {
             font-family: 'Space Mono', monospace;
-            font-weight: 700; /* Bold */
+            font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 50px;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 4vw, 1.1rem);
             letter-spacing: 1px;
         }
 
