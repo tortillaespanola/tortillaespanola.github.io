@@ -56,7 +56,19 @@
         }
 
         .product-card {
-            margin-bottom: 80px;
+            margin-bottom: 100px;
+        }
+
+        .weight-box {
+            background-color: #000;
+            color: #fff;
+            display: inline-block;
+            padding: 15px 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
         }
 
         .product-image {
@@ -66,140 +78,63 @@
             background-color: #f0f0f0;
             object-fit: cover;
             margin-bottom: 20px;
-        }
-
-        .product-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.4rem;
-            margin: 5px 0;
-            text-transform: uppercase;
+            display: block;
         }
 
         .product-lang-sub {
             display: block;
-            font-size: 0.75rem;
-            margin-bottom: 15px;
-            font-style: italic;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .price-tag {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 25px;
             display: block;
         }
 
         .btn-order {
             display: inline-block;
-            background: #000;
-            color: #fff;
+            border: 2px solid #000;
+            background: transparent;
+            color: #000;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 15px 40px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            transition: transform 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .btn-order:hover {
-            transform: scale(1.05);
+            background: #000;
+            color: #fff;
         }
 
         /* Tabla de Ingredientes */
         .ingredients-section {
             margin-top: 60px;
             text-align: left;
-            border-top: 1px solid #000;
+            border-top: 2px solid #000;
             padding-top: 30px;
         }
 
         .ingredients-section h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
         }
 
         .ing-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
-            font-size: 0.8rem;
+            gap: 20px;
+            font-size: 0.85rem;
         }
 
-        .ing-item {
-            border-bottom: 1px dotted #ccc;
-            padding-bottom: 5px;
-        }
-
-        .ing-label {
-            font-weight: 700;
-            display: block;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            color: #666;
-        }
-
-        .footer-note {
-            margin-top: 50px;
-            font-size: 0.7rem;
-            line-height: 1.6;
-            opacity: 0.8;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <a href="/" class="back-link">← Zurück / Back</a>
-
-        <h1>BESTELLIG</h1>
-        <span class="subtitle-main">PRE-ORDER YOUR TORTILLA</span>
-
-        <div class="product-card">
-            <img src="foto-500.jpg" alt="Tortilla Mediana" class="product-image">
-            <div class="product-title">LA MEDIANA</div>
-            <span class="product-lang-sub">Die Kleine für Zwischendurch / The smaller one</span>
-            <span class="price-tag">CHF 22.00</span>
-            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20order%20LA%20MEDIANA." class="btn-order" target="_blank">JETZT BSTELLÄ</a>
-        </div>
-
-        <div class="product-card">
-            <img src="foto-1000.jpg" alt="Tortilla Grande" class="product-image">
-            <div class="product-title">LA GRANDE</div>
-            <span class="product-lang-sub">Das Meisterwerk zum Teilen / The masterpiece to share</span>
-            <span class="price-tag">CHF 38.00</span>
-            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20order%20LA%20GRANDE." class="btn-order" target="_blank">JETZT BSTELLÄ</a>
-        </div>
-
-        <div class="ingredients-section">
-            <h2>Zutaten & Herkunft</h2>
-            <div class="ing-grid">
-                <div class="ing-item">
-                    <span class="ing-label">Kartoffeln (Agria)</span>
-                    Birsmattehof Bio-Genossenschaft, Therwil
-                </div>
-                <div class="ing-item">
-                    <span class="ing-label">Eier (IP Suisse Freiland)</span>
-                    Rieder Eier, Rothenfluh
-                </div>
-                <div class="ing-item">
-                    <span class="ing-label">Zwiebel (Gelb gross)</span>
-                    Weber Neuhof, Liestal
-                </div>
-                <div class="ing-item">
-                    <span class="ing-label">Öl & Salz</span>
-                    Natives Olivenöl extra (Spanien) & Meersalz
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-note">
-            Abholung in Basel nach Vereinbarung.<br>
-            Pick-up in Basel by appointment.
-        </div>
-    </div>
-
-</body>
-</html>
+        .ing-
