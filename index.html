@@ -6,14 +6,13 @@
     <title>ESPAÑOLA | Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Space+Mono:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Space+Mono:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #ffffff;
-            --card-bg: #f6f8fa;
-            --text-primary: #1f2328;
+            --text-primary: #000000;
             --text-secondary: #636c76;
-            --border-color: #d0d7de;
+            --border-color: #000000;
         }
 
         body {
@@ -30,15 +29,14 @@
 
         .container {
             width: 100%;
-            max-width: 700px;
+            max-width: 600px;
             padding: 40px 20px;
             box-sizing: border-box;
         }
 
-        /* Ajuste inteligente del Logo */
         .logo-gif {
-            width: 360px; /* Tamaño para laptop */
-            max-width: 85%; /* "Un dedo de respiro" en móvil (ocupa el 85% del ancho) */
+            width: 360px;
+            max-width: 85%;
             height: auto;
             margin: 0 auto 30px;
             display: block;
@@ -47,8 +45,8 @@
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: clamp(2rem, 10vw, 3.5rem); /* Se adapta al tamaño de pantalla */
-            margin-bottom: 5px;
+            font-size: clamp(2.5rem, 10vw, 4rem);
+            margin: 0;
             letter-spacing: -2px;
             text-transform: uppercase;
         }
@@ -56,49 +54,62 @@
         .description {
             font-family: 'Space Mono', monospace;
             font-weight: 700;
-            color: var(--text-primary);
+            margin-top: 5px;
             margin-bottom: 50px;
-            font-size: clamp(0.9rem, 4vw, 1.1rem);
+            font-size: clamp(0.8rem, 3.5vw, 1rem);
             letter-spacing: 1px;
         }
 
-        .links-grid {
-            display: grid;
-            gap: 15px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 18px 25px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: all 0.2s ease-in-out;
+        /* Cascada de Links */
+        .links-cascade {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            gap: 20px;
+            align-items: center;
         }
 
-        .card:hover {
-            border-color: #000;
-            transform: translateY(-2px);
+        .btn-link {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; /* Bold */
+            text-decoration: none;
+            color: #000;
             background: #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid #000;
+            padding: 18px 30px;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
         }
 
-        .card h3 {
-            margin: 0 0 3px 0;
-            font-size: 1.1rem;
-            font-weight: 700;
+        .btn-link:hover {
+            background: #000;
+            color: #fff;
         }
 
-        .card p {
-            margin: 0;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+        .btn-link:hover img.ws-icon {
+            filter: invert(1);
+        }
+
+        /* Icono WhatsApp Blanco y Negro */
+        .ws-icon {
+            width: 24px;
+            height: 24px;
+            filter: grayscale(1) contrast(2);
+        }
+
+        .small-text {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            margin-top: 2px;
         }
 
         .footer {
@@ -117,25 +128,37 @@
         <h1>ESPAÑOLA</h1>
         <p class="description">--SPANISCHE TORTILLA--</p>
 
-        <div class="links-grid">
-            <a href="/playlists" class="card">
-                <h3>🎵 Playlists</h3>
-                <p>Selección musical y listas curadas.</p>
+        <div class="links-cascade">
+            
+            <a href="https://wa.me/41772146639?text=Griezi!" class="btn-link" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" class="ws-icon">
+                <div>
+                    DO VORBESTELLE<br>
+                    <span class="small-text">PRE-ORDER YOURS NOW</span>
+                </div>
             </a>
 
-            <a href="/impressum" class="card">
-                <h3>⚖️ Impressum</h3>
-                <p>Información legal y contacto.</p>
+            <a href="/playlists" class="btn-link">
+                <div>
+                    KITCHEN'S PLAYLIST<br>
+                    <span class="small-text">LISTEN WHILE YOU WAIT</span>
+                </div>
             </a>
 
-            <a href="https://github.com/tortillaespanola" class="card" target="_blank">
-                <h3>💻 GitHub</h3>
-                <p>Repositorios y proyectos de código.</p>
+            <a href="mailto:hola@espanola.ch" class="btn-link">
+                <div>
+                    SCHRYB MIR UFF D'MAIL<br>
+                    <span class="small-text">WRITE ME AN E-MAIL</span>
+                </div>
+            </a>
+
+            <a href="/impressum" style="font-family:'Space Mono'; font-size: 0.7rem; color: #636c76; text-decoration: none; margin-top: 20px;">
+                [ IMPRESSUM ]
             </a>
         </div>
 
         <div class="footer">
-            &copy; 2024 ESPAÑOLA
+            &copy; 2026 ESPAÑOLA
         </div>
     </div>
 
