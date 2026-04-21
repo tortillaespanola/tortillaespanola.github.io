@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tortilla Española | Home</title>
+    <title>ESPAÑOLA | Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Space+Mono:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #ffffff;
             --card-bg: #f6f8fa;
             --text-primary: #1f2328;
             --text-secondary: #636c76;
-            --accent-color: #f1c40f;
             --border-color: #d0d7de;
         }
 
@@ -30,41 +29,49 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 700px;
             padding: 40px 20px;
         }
 
-        /* Estilos para el nuevo Logo GIF */
+        /* Logo 3 veces más grande */
         .logo-gif {
-            width: 120px; /* Puedes ajustar este tamaño según tu GIF */
+            width: 360px; 
             height: auto;
-            margin: 0 auto 25px;
+            margin: 0 auto 30px;
             display: block;
-            border-radius: 12px; /* Suaviza las esquinas si el GIF es cuadrado */
         }
 
+        /* Título en Montserrat Extra Bold */
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800; /* Extra Bold */
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            letter-spacing: -2px;
+            text-transform: uppercase;
         }
 
+        /* Subtítulo en Space Mono Bold */
         .description {
-            color: var(--text-secondary);
-            margin-bottom: 40px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700; /* Bold */
+            color: var(--text-primary);
+            margin-bottom: 50px;
             font-size: 1.1rem;
+            letter-spacing: 1px;
         }
 
         .links-grid {
             display: grid;
             gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 20px;
+            padding: 18px 25px;
             border-radius: 12px;
             text-decoration: none;
             color: var(--text-primary);
@@ -75,30 +82,28 @@
         }
 
         .card:hover {
-            border-color: #afb8c1;
+            border-color: #000;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            background: #ebeef2;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .card h3 {
-            margin: 0 0 5px 0;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            margin: 0 0 3px 0;
+            font-size: 1.1rem;
+            font-weight: 700;
         }
 
         .card p {
             margin: 0;
-            font-size: 0.95rem;
-            text-align: left;
+            font-size: 0.85rem;
             color: var(--text-secondary);
         }
 
         .footer {
             margin-top: 60px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            font-family: 'Space Mono', monospace;
             color: var(--text-secondary);
         }
     </style>
@@ -106,30 +111,30 @@
 <body>
 
     <div class="container">
-        <img src="logo.gif" alt="Logo Tortilla Española" class="logo-gif">
+        <img src="logo.gif" alt="Logo" class="logo-gif">
         
-        <h1>tortillaespanola</h1>
-        <p class="description">Bienvenido a mi rincón digital.</p>
+        <h1>ESPAÑOLA</h1>
+        <p class="description">--SPANISCHE TORTILLA--</p>
 
         <div class="links-grid">
             <a href="/playlists" class="card">
                 <h3>🎵 Playlists</h3>
-                <p>Mi selección musical personal y listas curadas.</p>
+                <p>Selección musical y listas curadas.</p>
             </a>
 
             <a href="/impressum" class="card">
                 <h3>⚖️ Impressum</h3>
-                <p>Información legal y contacto de este sitio web.</p>
+                <p>Información legal y contacto.</p>
             </a>
 
             <a href="https://github.com/tortillaespanola" class="card" target="_blank">
                 <h3>💻 GitHub</h3>
-                <p>Explora mis repositorios y proyectos de código.</p>
+                <p>Repositorios y proyectos de código.</p>
             </a>
         </div>
 
         <div class="footer">
-            &copy; 2024 tortillaespanola. Hecho con ❤️ y mucho 🥚.
+            &copy; 2024 ESPAÑOLA
         </div>
     </div>
 
