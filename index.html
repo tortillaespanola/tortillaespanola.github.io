@@ -46,8 +46,10 @@
             font-weight: 800;
             font-size: clamp(2.5rem, 10vw, 4rem);
             margin: 0;
-            letter-spacing: -2px;
+            /* Aquí ajustamos la separación de letras */
+            letter-spacing: 4px; 
             text-transform: uppercase;
+            padding-left: 4px; /* Para compensar el tracking y que quede centrado */
         }
 
         .description {
@@ -62,13 +64,14 @@
         .location-tag {
             font-family: 'Space Mono', monospace;
             font-size: 0.8rem;
+            font-weight: 700; /* Bold */
             background: #000;
             color: #fff;
             padding: 6px 14px;
             display: inline-block;
             margin-bottom: 50px;
             text-transform: uppercase;
-            border-radius: 0;
+            letter-spacing: 2px;
         }
 
         .links-cascade {
@@ -109,7 +112,6 @@
             color: #000; 
         }
 
-        /* Sección Stubbornness */
         .stubborn-section {
             margin-top: 50px;
             margin-bottom: 30px;
@@ -142,12 +144,25 @@
             display: inline-block;
         }
 
-        .footer {
+        .footer-links {
             margin-top: 40px;
+        }
+
+        .footer-link-item {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: #000;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .footer {
+            margin-top: 20px;
             font-size: 0.7rem;
             font-family: 'Space Mono', monospace;
             color: #000;
             text-transform: uppercase;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -201,9 +216,9 @@
             </div>
         </div>
 
-        <a href="impressum.html" style="font-family:'Space Mono'; font-size: 0.7rem; color: #000; text-decoration: none;">
-            [ IMPRESSUM ]
-        </a>
+        <div class="footer-links">
+            <a href="impressum.html" class="footer-link-item">[ IMPRESSUM ]</a>
+        </div>
 
         <div class="footer">
             &copy; 2026 ESPAÑOLA | BASEL, CH
