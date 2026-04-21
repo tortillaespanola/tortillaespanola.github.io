@@ -80,7 +80,6 @@
             text-transform: uppercase;
         }
 
-        /* Oculta el cuadro de imagen si no hay archivo real */
         .product-image {
             width: 100%;
             height: auto;
@@ -90,8 +89,8 @@
             display: block;
         }
 
-        /* Evita que se vea el icono de imagen rota si la foto no existe */
-        img:not([src]), img[src=""] {
+        /* Evita que se vea el icono de imagen rota si el archivo no existe */
+        img:not([src]), img[src=""], .product-image[style*="display: none"] {
             display: none !important;
         }
 
@@ -125,6 +124,7 @@
             transform: scale(1.05);
         }
 
+        /* Sección Ingredientes solo en Alemán */
         .ingredients-section {
             margin-top: 60px;
             text-align: left;
@@ -181,9 +181,9 @@
             
             <img src="foto-1000.jpg" onerror="this.style.display='none'" class="product-image">
             
-            <span class="product-lang-sub">Ideal für Glotones / Perfect for the hungry ones</span>
+            <span class="product-lang-sub">Das Meisterwerk zum Teilen / The masterpiece to share</span>
             <span class="price-tag">CHF 38.00</span>
-            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20order%20LA%20GRANDE." class="btn-order" target="_blank">BSTELLÄ VIA WHATSAPP</a>
+            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20order%20LA%20GRANDE%20(1KG)." class="btn-order" target="_blank">BSTELLÄ VIA WHATSAPP</a>
         </div>
 
         <div class="product-card">
@@ -194,23 +194,23 @@
             
             <span class="product-lang-sub">Ideal für Paare / Ideal for couples</span>
             <span class="price-tag">CHF 22.00</span>
-            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20order%20LA%20MEDIANA." class="btn-order" target="_blank">BSTELLÄ VIA WHATSAPP</a>
+            <a href="https://wa.me/41772146639?text=Gruezi!%20I%20would%20like%20to%20order%20LA%20MEDIANA%20(1/2KG)." class="btn-order" target="_blank">BSTELLÄ VIA WHATSAPP</a>
         </div>
 
         <div class="ingredients-section">
-            <h2>Zutaten & Herkunft</h2>
+            <h2>Zutaten, Sorte & Herkunft</h2>
             <div class="ing-grid">
                 <div class="ing-item">
                     <span class="ing-label">Kartoffeln (Agria)</span>
-                    Birsmattehof Bio-Genossenschaft, Therwil
+                    Birsmattehof Bio-Genossenschaft (Therwil)
                 </div>
                 <div class="ing-item">
-                    <span class="ing-label">Eier (IP Suisse Freiland)</span>
-                    Rieder Eier, Rothenfluh
+                    <span class="ing-label">Eier (IP Suisse Freilandhaltung)</span>
+                    Rieder Eier (Rothenfluh)
                 </div>
                 <div class="ing-item">
                     <span class="ing-label">Zwiebel (Gelb gross)</span>
-                    Weber Neuhof, Liestal
+                    Weber Neuhof (Liestal)
                 </div>
                 <div class="ing-item">
                     <span class="ing-label">Öl & Salz</span>
