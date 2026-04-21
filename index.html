@@ -9,12 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff; /* Fondo blanco */
-            --card-bg: #f6f8fa;    /* Gris muy claro para las tarjetas */
-            --text-primary: #1f2328; /* Texto casi negro */
-            --text-secondary: #636c76; /* Texto gris para descripción */
-            --accent-color: #f1c40f; /* Color tortilla */
-            --border-color: #d0d7de; /* Borde gris suave */
+            --bg-color: #ffffff;
+            --card-bg: #f6f8fa;
+            --text-primary: #1f2328;
+            --text-secondary: #636c76;
+            --accent-color: #f1c40f;
+            --border-color: #d0d7de;
         }
 
         body {
@@ -31,34 +31,29 @@
 
         .container {
             max-width: 600px;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
-        .logo {
-            font-size: 4rem;
-            background: var(--accent-color);
-            color: #000;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 20%;
-            margin: 0 auto 20px;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        /* Estilos para el nuevo Logo GIF */
+        .logo-gif {
+            width: 120px; /* Puedes ajustar este tamaño según tu GIF */
+            height: auto;
+            margin: 0 auto 25px;
+            display: block;
+            border-radius: 12px; /* Suaviza las esquinas si el GIF es cuadrado */
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             letter-spacing: -1px;
-            color: var(--text-primary);
+            font-weight: 700;
         }
 
-        p {
+        .description {
             color: var(--text-secondary);
             margin-bottom: 40px;
+            font-size: 1.1rem;
         }
 
         .links-grid {
@@ -73,7 +68,7 @@
             border-radius: 12px;
             text-decoration: none;
             color: var(--text-primary);
-            transition: all 0.2s ease;
+            transition: all 0.2s ease-in-out;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -82,56 +77,4 @@
         .card:hover {
             border-color: #afb8c1;
             transform: translateY(-2px);
-            background: #ebeef2;
-        }
-
-        .card h3 {
-            margin: 0 0 5px 0;
-            font-size: 1.2rem;
-        }
-
-        .card p {
-            margin: 0;
-            font-size: 0.9rem;
-            text-align: left;
-            color: var(--text-secondary);
-        }
-
-        .footer {
-            margin-top: 50px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <div class="logo">Ñ</div>
-        <h1>tortillaespanola</h1>
-        <p>Bienvenido a mi rincón digital.</p>
-
-        <div class="links-grid">
-            <a href="/playlists" class="card">
-                <h3>🎵 Playlists</h3>
-                <p>Mi selección musical personal y listas curadas.</p>
-            </a>
-
-            <a href="/impressum" class="card">
-                <h3>⚖️ Impressum</h3>
-                <p>Información legal y contacto de este sitio web.</p>
-            </a>
-
-            <a href="https://github.com/tortillaespanola" class="card" target="_blank">
-                <h3>💻 GitHub</h3>
-                <p>Echa un vistazo a mis repositorios y código.</p>
-            </a>
-        </div>
-
-        <div class="footer">
-            &copy; 2024 tortillaespanola. Hecho con ❤️ y 🥚.
-        </div>
-    </div>
-
-</body>
-</html>
+            box-shadow: 0 4px 12px rgba(0,0,0,0.0
