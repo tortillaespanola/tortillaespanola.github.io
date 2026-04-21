@@ -11,7 +11,6 @@
         :root {
             --bg-color: #ffffff;
             --text-primary: #000000;
-            --text-secondary: #636c76;
             --hover-scale: 1.05;
         }
 
@@ -60,23 +59,23 @@
             letter-spacing: 1px;
         }
 
-        /* Etiqueta de Localización */
+        /* Etiqueta de Localización (Esquinas rectas) */
         .location-tag {
             font-family: 'Space Mono', monospace;
             font-size: 0.8rem;
             background: #000;
             color: #fff;
-            padding: 4px 12px;
+            padding: 6px 14px;
             display: inline-block;
             margin-bottom: 50px;
-            border-radius: 4px;
             text-transform: uppercase;
+            border-radius: 0; /* Sin redondeo */
         }
 
         .links-cascade {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
             align-items: center;
         }
 
@@ -95,28 +94,28 @@
             justify-content: center;
             align-items: center;
             text-transform: uppercase;
-            transition: transform 0.2s ease, opacity 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
         .btn-link:hover {
             transform: scale(var(--hover-scale));
-            opacity: 0.7;
         }
 
+        /* Subtítulos en negro igual que el principal */
         .small-text {
             display: block;
             font-size: 0.7rem;
             font-weight: 400;
             margin-top: 2px;
             text-transform: none;
-            color: var(--text-secondary);
+            color: #000; 
         }
 
         .footer {
             margin-top: 60px;
             font-size: 0.7rem;
             font-family: 'Space Mono', monospace;
-            color: var(--text-secondary);
+            color: #000;
             text-transform: uppercase;
         }
     </style>
@@ -127,7 +126,7 @@
         <img src="logo.gif" alt="Logo" class="logo-gif">
         
         <h1>ESPAÑOLA</h1>
-        <p class="description">--SPANISCHE TORTILLA--</p>
+        <p class="description">-- SPANISCHE TORTILLA --</p>
         <div class="location-tag">Only in Basel</div>
 
         <div class="links-cascade">
@@ -153,7 +152,7 @@
                 </div>
             </a>
 
-            <a href="/impressum" style="font-family:'Space Mono'; font-size: 0.7rem; color: #636c76; text-decoration: none; margin-top: 20px;">
+            <a href="/impressum" style="font-family:'Space Mono'; font-size: 0.7rem; color: #000; text-decoration: none; margin-top: 20px;">
                 [ IMPRESSUM ]
             </a>
         </div>
