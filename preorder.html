@@ -11,6 +11,7 @@
         :root {
             --bg-color: #ffffff;
             --text-primary: #000000;
+            --accent: #e60000; /* Un toque de rojo español opcional */
         }
 
         body {
@@ -56,7 +57,9 @@
         }
 
         .product-card {
-            margin-bottom: 80px;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eee;
         }
 
         .weight-tag {
@@ -64,53 +67,77 @@
             color: #fff;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             display: inline-block;
-            padding: 8px 25px;
-            margin-bottom: 15px;
+            padding: 5px 20px;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: -1px;
-            text-decoration: none;
-            transition: transform 0.2s ease;
-        }
-
-        .weight-tag:hover {
-            transform: scale(1.05);
         }
 
         .product-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 1.4rem;
-            margin: 5px 0 15px 0;
+            margin: 5px 0 10px 0;
             text-transform: uppercase;
-        }
-
-        .product-image {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: cover;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        img:not([src]), img[src=""], .product-image[style*="display: none"] {
-            display: none !important;
-        }
-
-        .product-lang-sub {
-            display: block;
-            font-size: 0.75rem;
-            margin-bottom: 15px;
-            font-style: italic;
         }
 
         .price-tag {
             font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: block;
+        }
+
+        /* Selectores de cantidad */
+        .quantity-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .qty-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .qty-val {
+            font-size: 1.5rem;
+            font-weight: 700;
+            min-width: 30px;
+        }
+
+        /* Footer del pedido */
+        .order-summary {
+            position: sticky;
+            bottom: 20px;
+            background: #fff;
+            padding: 20px;
+            border: 2px solid #000;
+            margin-top: 40px;
+            box-shadow: 10px 10px 0px #000;
+        }
+
+        .total-price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .weight-warning {
+            color: red;
+            font-size: 0.75rem;
+            margin-bottom: 10px;
+            display: none;
         }
 
         .btn-order {
@@ -122,11 +149,14 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
-            transition: transform 0.2s ease;
+            width: 100%;
+            box-sizing: border-box;
+            transition: opacity 0.2s;
         }
 
-        .btn-order:hover {
-            transform: scale(1.05);
+        .btn-order.disabled {
+            background: #ccc;
+            pointer-events: none;
         }
 
         .ingredients-section {
@@ -134,13 +164,6 @@
             text-align: left;
             border-top: 1px solid #000;
             padding-top: 30px;
-        }
-
-        .ingredients-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            text-transform: uppercase;
-            margin-bottom: 20px;
         }
 
         .ing-grid {
@@ -162,13 +185,6 @@
             font-size: 0.7rem;
             color: #666;
         }
-
-        .footer-note {
-            margin-top: 50px;
-            font-size: 0.7rem;
-            line-height: 1.6;
-            opacity: 0.8;
-        }
     </style>
 </head>
 <body>
@@ -180,25 +196,32 @@
         <span class="subtitle-main">PRE-ORDER YOUR TORTILLA</span>
 
         <div class="product-card">
-            <a href="https://wa.me/41772146639?text=Griezi!%20Ich%20m%C3%B6chte%20gerne%20/%20I%20would%20like%20to%20preorder%20LA%20GRANDE%20(1KG)." class="weight-tag" target="_blank">1 KG</a>
+            <div class="weight-tag">1 KG</div>
             <div class="product-title">LA GRANDE</div>
-            
-            <img src="foto-1000.jpg" onerror="this.style.display='none'" class="product-image">
-            
-            <span class="product-lang-sub">Das Meisterwerk zum Teilen / The masterpiece to share</span>
             <span class="price-tag">CHF 29.00</span>
-            <a href="https://wa.me/41772146639?text=Griezi!%20Ich%20m%C3%B6chte%20gerne%20/%20I%20would%20like%20to%20preorder%20LA%20GRANDE%20(1KG)." class="btn-order" target="_blank">BSTELLÄ VIA WHATSAPP</a>
+            <div class="quantity-controls">
+                <button class="qty-btn" onclick="updateQty('grande', -1)">-</button>
+                <span class="qty-val" id="qty-grande">0</span>
+                <button class="qty-btn" onclick="updateQty('grande', 1)">+</button>
+            </div>
         </div>
 
         <div class="product-card">
-            <a href="https://wa.me/41772146639?text=Griezi!%20Ich%20m%C3%B6chte%20gerne%20/%20I%20would%20like%20to%20preorder%20LA%20MEDIANA%20(1/2KG)." class="weight-tag" target="_blank">1/2 KG</a>
+            <div class="weight-tag">1/2 KG</div>
             <div class="product-title">LA MEDIANA</div>
-            
-            <img src="foto-500.jpg" onerror="this.style.display='none'" class="product-image">
-            
-            <span class="product-lang-sub">Ideal für Paare / Ideal for couples</span>
             <span class="price-tag">CHF 17.00</span>
-            <a href="https://wa.me/41772146639?text=Griezi!%20Ich%20m%C3%B6chte%20gerne%20/%20I%20would%20like%20to%20preorder%20LA%20MEDIANA%20(1/2KG)." class="btn-order" target="_blank">BSTELLÄ VIA WHATSAPP</a>
+            <div class="quantity-controls">
+                <button class="qty-btn" onclick="updateQty('mediana', -1)">-</button>
+                <span class="qty-val" id="qty-mediana">0</span>
+                <button class="qty-btn" onclick="updateQty('mediana', 1)">+</button>
+            </div>
+        </div>
+
+        <div class="order-summary">
+            <div class="total-price">TOTAL: CHF <span id="total-val">0.00</span></div>
+            <div id="weight-info" style="font-size: 0.7rem; margin-bottom: 10px;">Total Gewicht: <span id="current-weight">0</span> / 4kg</div>
+            <div class="weight-warning" id="warning">Maximal 4kg pro Bestellung / Max 4kg per order.</div>
+            <a href="#" id="whatsapp-btn" class="btn-order disabled" onclick="sendOrder()">BSTELLÄ VIA WHATSAPP</a>
         </div>
 
         <div class="ingredients-section">
@@ -218,17 +241,70 @@
                 </div>
                 <div class="ing-item">
                     <span class="ing-label">Öl & Salz</span>
-                    Natives Olivenöl extra (Spanien)<br>
-                    Meersalz
+                    Natives Olivenöl extra (Spanien) | Meersalz
                 </div>
             </div>
         </div>
-
-        <div class="footer-note">
-            Abholung in Basel nach Vereinbarung.<br>
-            Pick-up in Basel by appointment.
-        </div>
     </div>
+
+    <script>
+        let order = {
+            grande: 0,
+            mediana: 0
+        };
+
+        const prices = { grande: 29, mediana: 17 };
+        const weights = { grande: 1.0, mediana: 0.5 };
+        const MAX_WEIGHT = 4.0;
+
+        function updateQty(type, change) {
+            const newQty = order[type] + change;
+            
+            // Calcular peso potencial
+            const potentialWeight = (type === 'grande' ? (order.grande + change) * 1 : order.grande * 1) + 
+                                   (type === 'mediana' ? (order.mediana + change) * 0.5 : order.mediana * 0.5);
+
+            if (newQty >= 0 && potentialWeight <= MAX_WEIGHT) {
+                order[type] = newQty;
+                document.getElementById(`qty-${type}`).innerText = newQty;
+                document.getElementById('warning').style.display = 'none';
+            } else if (potentialWeight > MAX_WEIGHT) {
+                document.getElementById('warning').style.display = 'block';
+            }
+
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const total = (order.grande * prices.grande) + (order.mediana * prices.mediana);
+            const weight = (order.grande * weights.grande) + (order.mediana * weights.mediana);
+            
+            document.getElementById('total-val').innerText = total.toFixed(2);
+            document.getElementById('current-weight').innerText = weight;
+
+            const btn = document.getElementById('whatsapp-btn');
+            if (total > 0) {
+                btn.classList.remove('disabled');
+            } else {
+                btn.classList.add('disabled');
+            }
+        }
+
+        function sendOrder() {
+            const phone = "41772146639";
+            let message = "Griezi! Ich möchte gerne bestellen:\n\n";
+            
+            if (order.grande > 0) message += `- ${order.grande}x LA GRANDE (1kg)\n`;
+            if (order.mediana > 0) message += `- ${order.mediana}x LA MEDIANA (1/2kg)\n`;
+            
+            const total = (order.grande * prices.grande) + (order.mediana * prices.mediana);
+            message += `\nTotal: CHF ${total.toFixed(2)}\n`;
+            message += "Abholung nach Vereinbarung. Danke!";
+
+            const encodedMsg = encodeURIComponent(message);
+            window.open(`https://wa.me/${phone}?text=${encodedMsg}`, '_blank');
+        }
+    </script>
 
 </body>
 </html>
