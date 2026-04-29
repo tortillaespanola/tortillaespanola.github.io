@@ -11,7 +11,6 @@
         :root {
             --bg-color: #ffffff;
             --text-primary: #000000;
-            --accent: #e60000; /* Un toque de rojo español opcional */
         }
 
         body {
@@ -57,8 +56,8 @@
         }
 
         .product-card {
-            margin-bottom: 60px;
-            padding-bottom: 40px;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
             border-bottom: 1px solid #eee;
         }
 
@@ -67,19 +66,26 @@
             color: #fff;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             display: inline-block;
-            padding: 5px 20px;
+            padding: 5px 15px;
             margin-bottom: 10px;
-            text-transform: uppercase;
         }
 
         .product-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 1.4rem;
-            margin: 5px 0 10px 0;
+            margin: 5px 0 5px 0;
             text-transform: uppercase;
+        }
+
+        .product-lang-sub {
+            display: block;
+            font-size: 0.75rem;
+            margin-bottom: 15px;
+            font-style: italic;
+            opacity: 0.8;
         }
 
         .price-tag {
@@ -89,33 +95,54 @@
             display: block;
         }
 
-        /* Selectores de cantidad */
         .quantity-controls {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
-            margin-top: 15px;
         }
 
         .qty-btn {
             background: #000;
             color: #fff;
             border: none;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
+            width: 35px;
+            height: 35px;
+            font-size: 1.2rem;
             cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
         }
 
         .qty-val {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             min-width: 30px;
         }
 
-        /* Footer del pedido */
+        /* Sección Calendario */
+        .date-section {
+            margin: 40px 0;
+            padding: 20px;
+            border: 1px solid #000;
+            text-align: left;
+        }
+
+        .date-section label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            font-family: 'Space Mono', monospace;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+
         .order-summary {
             position: sticky;
             bottom: 20px;
@@ -130,12 +157,12 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 1.5rem;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .weight-warning {
             color: red;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             margin-bottom: 10px;
             display: none;
         }
@@ -151,7 +178,7 @@
             text-transform: uppercase;
             width: 100%;
             box-sizing: border-box;
-            transition: opacity 0.2s;
+            text-align: center;
         }
 
         .btn-order.disabled {
@@ -159,32 +186,7 @@
             pointer-events: none;
         }
 
-        .ingredients-section {
-            margin-top: 60px;
-            text-align: left;
-            border-top: 1px solid #000;
-            padding-top: 30px;
-        }
-
-        .ing-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            font-size: 0.8rem;
-        }
-
-        .ing-item {
-            border-bottom: 1px dotted #ccc;
-            padding-bottom: 5px;
-        }
-
-        .ing-label {
-            font-weight: 700;
-            display: block;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            color: #666;
-        }
+        .footer-note { margin-top: 30px; font-size: 0.7rem; opacity: 0.7; }
     </style>
 </head>
 <body>
@@ -198,6 +200,7 @@
         <div class="product-card">
             <div class="weight-tag">1 KG</div>
             <div class="product-title">LA GRANDE</div>
+            <span class="product-lang-sub">Das Meisterwerk zum Teilen / The masterpiece to share</span>
             <span class="price-tag">CHF 29.00</span>
             <div class="quantity-controls">
                 <button class="qty-btn" onclick="updateQty('grande', -1)">-</button>
@@ -209,6 +212,7 @@
         <div class="product-card">
             <div class="weight-tag">1/2 KG</div>
             <div class="product-title">LA MEDIANA</div>
+            <span class="product-lang-sub">Ideal für Paare / Ideal for couples</span>
             <span class="price-tag">CHF 17.00</span>
             <div class="quantity-controls">
                 <button class="qty-btn" onclick="updateQty('mediana', -1)">-</button>
@@ -217,73 +221,81 @@
             </div>
         </div>
 
+        <div class="date-section">
+            <label for="delivery-date">Abholdatum / Pick-up Date (Di-Sa):</label>
+            <input type="date" id="delivery-date" onchange="validateDate()">
+            <small style="display:block; margin-top:5px; font-size:0.65rem;">*Bestellungen bis 20:00 Uhr für den Folgetag.</small>
+        </div>
+
         <div class="order-summary">
             <div class="total-price">TOTAL: CHF <span id="total-val">0.00</span></div>
-            <div id="weight-info" style="font-size: 0.7rem; margin-bottom: 10px;">Total Gewicht: <span id="current-weight">0</span> / 4kg</div>
-            <div class="weight-warning" id="warning">Maximal 4kg pro Bestellung / Max 4kg per order.</div>
+            <div class="weight-warning" id="warning">Max. 4kg | Nur Di-Sa möglich.</div>
             <a href="#" id="whatsapp-btn" class="btn-order disabled" onclick="sendOrder()">BSTELLÄ VIA WHATSAPP</a>
         </div>
 
-        <div class="ingredients-section">
-            <h2>Zutaten, Sorte & Herkunft</h2>
-            <div class="ing-grid">
-                <div class="ing-item">
-                    <span class="ing-label">Kartoffeln (Agria)</span>
-                    Birsmattehof Bio-Genossenschaft (Therwil)
-                </div>
-                <div class="ing-item">
-                    <span class="ing-label">Eier (IP Suisse Freilandhaltung)</span>
-                    Rieder Eier (Rothenfluh)
-                </div>
-                <div class="ing-item">
-                    <span class="ing-label">Zwiebel (Gelb gross)</span>
-                    Weber Neuhof (Liestal)
-                </div>
-                <div class="ing-item">
-                    <span class="ing-label">Öl & Salz</span>
-                    Natives Olivenöl extra (Spanien) | Meersalz
-                </div>
-            </div>
+        <div class="footer-note">
+            Abholung in Basel nach Vereinbarung.<br>Pick-up in Basel by appointment.
         </div>
     </div>
 
     <script>
-        let order = {
-            grande: 0,
-            mediana: 0
-        };
-
+        let order = { grande: 0, mediana: 0 };
         const prices = { grande: 29, mediana: 17 };
         const weights = { grande: 1.0, mediana: 0.5 };
-        const MAX_WEIGHT = 4.0;
+
+        // Configurar restricciones del calendario al cargar
+        window.onload = function() {
+            const dateInput = document.getElementById('delivery-date');
+            let today = new Date();
+            let minDate = new Date();
+
+            // Si es después de las 20:00 (8 PM), la fecha mínima es en 2 días
+            if (today.getHours() >= 20) {
+                minDate.setDate(today.getDate() + 2);
+            } else {
+                minDate.setDate(today.getDate() + 1);
+            }
+
+            dateInput.min = minDate.toISOString().split('T')[0];
+        };
+
+        function validateDate() {
+            const dateInput = document.getElementById('delivery-date');
+            const selectedDate = new Date(dateInput.value);
+            const day = selectedDate.getUTCDay(); // 0=Dom, 1=Lun, 2=Mar...
+
+            // Días permitidos: Martes (2) a Sábado (6)
+            if (day === 0 || day === 1) {
+                alert("Entregas solo de Martes a Sábado / Lieferungen nur von Dienstag bis Samstag.");
+                dateInput.value = "";
+            }
+            calculateTotal();
+        }
 
         function updateQty(type, change) {
             const newQty = order[type] + change;
-            
-            // Calcular peso potencial
-            const potentialWeight = (type === 'grande' ? (order.grande + change) * 1 : order.grande * 1) + 
-                                   (type === 'mediana' ? (order.mediana + change) * 0.5 : order.mediana * 0.5);
+            const potentialWeight = (type === 'grande' ? (order.grande + change) : order.grande) * 1 + 
+                                   (type === 'mediana' ? (order.mediana + change) : order.mediana) * 0.5;
 
-            if (newQty >= 0 && potentialWeight <= MAX_WEIGHT) {
+            if (newQty >= 0 && potentialWeight <= 4.0) {
                 order[type] = newQty;
                 document.getElementById(`qty-${type}`).innerText = newQty;
                 document.getElementById('warning').style.display = 'none';
-            } else if (potentialWeight > MAX_WEIGHT) {
+            } else if (potentialWeight > 4.0) {
                 document.getElementById('warning').style.display = 'block';
             }
-
             calculateTotal();
         }
 
         function calculateTotal() {
             const total = (order.grande * prices.grande) + (order.mediana * prices.mediana);
-            const weight = (order.grande * weights.grande) + (order.mediana * weights.mediana);
+            const dateValue = document.getElementById('delivery-date').value;
+            const btn = document.getElementById('whatsapp-btn');
             
             document.getElementById('total-val').innerText = total.toFixed(2);
-            document.getElementById('current-weight').innerText = weight;
-
-            const btn = document.getElementById('whatsapp-btn');
-            if (total > 0) {
+            
+            // Habilitar botón solo si hay productos Y fecha
+            if (total > 0 && dateValue !== "") {
                 btn.classList.remove('disabled');
             } else {
                 btn.classList.add('disabled');
@@ -292,19 +304,18 @@
 
         function sendOrder() {
             const phone = "41772146639";
-            let message = "Griezi! Ich möchte gerne bestellen:\n\n";
+            const date = document.getElementById('delivery-date').value;
+            let message = `Griezi! Ich möchte gerne bestellen:\n\n`;
             
             if (order.grande > 0) message += `- ${order.grande}x LA GRANDE (1kg)\n`;
             if (order.mediana > 0) message += `- ${order.mediana}x LA MEDIANA (1/2kg)\n`;
             
-            const total = (order.grande * prices.grande) + (order.mediana * prices.mediana);
-            message += `\nTotal: CHF ${total.toFixed(2)}\n`;
-            message += "Abholung nach Vereinbarung. Danke!";
+            message += `\nAbholdatum: ${date}\n`;
+            message += `Total: CHF ${document.getElementById('total-val').innerText}\n`;
+            message += `\nBitte bestätigen Sie mir den Termin. Danke!`;
 
-            const encodedMsg = encodeURIComponent(message);
-            window.open(`https://wa.me/${phone}?text=${encodedMsg}`, '_blank');
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
-
 </body>
 </html>
