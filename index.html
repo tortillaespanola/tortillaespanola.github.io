@@ -23,7 +23,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            text-align: center;
+            /* Quitamos el text-align center global para controlarlo por secciones */
         }
 
         .container {
@@ -31,6 +31,7 @@
             max-width: 600px;
             padding: 40px 20px;
             box-sizing: border-box;
+            text-align: center; /* Mantenemos el centro para el logo y el título */
         }
 
         .logo-gif {
@@ -111,12 +112,16 @@
             color: #000; 
         }
 
+        /* --- CAMBIOS AQUÍ: LA SECCIÓN DEL TEXTO --- */
         .stubborn-section {
-            margin-top: 50px;
+            margin-top: 60px;
             margin-bottom: 30px;
-            max-width: 450px;
+            max-width: 400px; /* Reducimos un poco el ancho para que el bloque se vea compacto */
             margin-left: auto;
             margin-right: auto;
+            text-align: left; /* AQUÍ ESTÁ EL ANCLA: Texto a la izquierda */
+            border-left: 2px solid #000; /* Opcional: una línea física de ancla refuerza el diseño */
+            padding-left: 20px;
         }
 
         .stubborn-title {
@@ -130,21 +135,23 @@
         .stubborn-text {
             font-family: 'Space Mono', monospace;
             font-size: 0.85rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .stubborn-quote {
             font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-style: italic;
-            border-top: 1px solid #000;
+            border-top: 1px solid #eee; /* Una línea más sutil */
             padding-top: 15px;
-            display: inline-block;
+            display: block;
+            color: #666;
         }
 
         .footer-links {
             margin-top: 40px;
+            text-align: center;
         }
 
         .footer-link-item {
@@ -157,6 +164,7 @@
 
         .footer {
             margin-top: 20px;
+            text-align: center;
             font-size: 0.7rem;
             font-family: 'Space Mono', monospace;
             color: #000;
@@ -175,7 +183,6 @@
         <div class="location-tag">Only in Basel</div>
 
         <div class="links-cascade">
-            
             <a href="preorder.html" class="btn-link">
                 <div>
                     DO VORBESTELLE<br>
@@ -205,6 +212,7 @@
             </a>
         </div>
 
+        <!-- El bloque de texto ahora tiene un eje izquierdo claro -->
         <div class="stubborn-section">
             <div class="stubborn-title">SPANISCHI STUURHAIT</div>
             <div class="stubborn-text">
