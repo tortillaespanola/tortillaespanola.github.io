@@ -12,7 +12,6 @@
             --bg-color: #ffffff;
             --text-primary: #000000;
             --brand-color: #f0b323; 
-            --brand-dark: #a37813; /* Color más oscuro para el borde/sombra */
             --hover-scale: 1.03;
         }
 
@@ -111,17 +110,12 @@
             transition: all 0.2s ease;
         }
 
-        /* BOTÓN DE COMPRA: Sin redondeo y borde más oscuro */
+        /* BOTÓN DE COMPRA: Plano y cuadrado */
         .btn-main {
             background-color: var(--brand-color);
-            border-radius: 0; /* Sin redondeo */
-            box-shadow: 0 5px 0 var(--brand-dark); /* Borde/Sombra más oscura */
+            border-radius: 0;
             margin-bottom: 12px;
-        }
-
-        .btn-main:active {
-            transform: translateY(3px);
-            box-shadow: 0 2px 0 var(--brand-dark);
+            box-shadow: none; /* Eliminada la sombra */
         }
 
         .btn-secondary {
