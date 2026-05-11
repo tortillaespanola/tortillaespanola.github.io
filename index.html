@@ -11,7 +11,7 @@
         :root {
             --bg-color: #ffffff;
             --text-primary: #000000;
-            --brand-color: #f0b323; /* Tu color corporativo */
+            --brand-color: #f0b323; 
             --hover-scale: 1.03;
         }
 
@@ -32,6 +32,18 @@
             padding: 40px 20px;
             box-sizing: border-box;
             text-align: center;
+        }
+
+        /* Estilo para que los enlaces de marca no parezcan enlaces */
+        .brand-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+            transition: opacity 0.2s ease;
+        }
+
+        .brand-link:hover {
+            opacity: 0.8;
         }
 
         .logo-gif {
@@ -65,7 +77,7 @@
             font-family: 'Space Mono', monospace;
             font-size: 0.8rem;
             font-weight: 700;
-            background: var(--brand-color); /* Color corporativo */
+            background: var(--brand-color);
             color: #000;
             padding: 6px 14px;
             display: inline-block;
@@ -100,11 +112,10 @@
             border: 2px solid transparent;
         }
 
-        /* ESTILO PARA EL BOTÓN PRINCIPAL (CTA) */
         .btn-main {
             background-color: var(--brand-color);
             border-radius: 4px;
-            box-shadow: 0 4px 0 #c4911d; /* Efecto de profundidad */
+            box-shadow: 0 4px 0 #c4911d;
             margin-bottom: 10px;
         }
 
@@ -113,7 +124,6 @@
             box-shadow: 0 2px 0 #c4911d;
         }
 
-        /* ESTILO PARA BOTONES SECUNDARIOS */
         .btn-secondary {
             border-bottom: 1px solid #eee;
         }
@@ -124,7 +134,7 @@
         }
         
         .btn-main:hover {
-            background-color: #ffc233; /* Un pelín más claro al pasar el mouse */
+            background-color: #ffc233;
         }
 
         .small-text {
@@ -136,15 +146,14 @@
             opacity: 0.8;
         }
 
-        /* SECCIÓN STUBBORN CON ANCLA IZQUIERDA */
         .stubborn-section {
             margin-top: 60px;
             margin-bottom: 30px;
             max-width: 420px;
             margin-left: auto;
             margin-right: auto;
-            text-align: left; /* Alineado a la izquierda para legibilidad */
-            border-left: 3px solid var(--brand-color); /* Ancla con color corporativo */
+            text-align: left;
+            border-left: 3px solid var(--brand-color);
             padding-left: 25px;
         }
 
@@ -201,14 +210,20 @@
 <body>
 
     <div class="container">
-        <img src="logo.gif" alt="Logo" class="logo-gif">
+        <!-- GIF con enlace -->
+        <a href="preorder.html" class="brand-link">
+            <img src="logo.gif" alt="Logo" class="logo-gif">
+        </a>
         
-        <h1>ESPAÑOLA</h1>
+        <!-- Título con enlace -->
+        <a href="preorder.html" class="brand-link">
+            <h1>ESPAÑOLA</h1>
+        </a>
+
         <p class="description">-- SPANISCHE TORTILLA --</p>
         <div class="location-tag">Only in Basel</div>
 
         <div class="links-cascade">
-            <!-- Botón Destacado -->
             <a href="preorder.html" class="btn-link btn-main">
                 <div>
                     DO VORBESTELLE<br>
@@ -216,7 +231,6 @@
                 </div>
             </a>
 
-            <!-- Botones Secundarios -->
             <a href="https://instagram.com/hola.espanola.ch" class="btn-link btn-secondary" target="_blank">
                 <div>
                     INSTAGRAM<br>
