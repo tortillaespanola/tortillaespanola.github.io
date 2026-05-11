@@ -12,6 +12,7 @@
             --bg-color: #ffffff;
             --text-primary: #000000;
             --brand-color: #f0b323; 
+            --brand-dark: #a37813; /* Color más oscuro para el borde/sombra */
             --hover-scale: 1.03;
         }
 
@@ -34,7 +35,6 @@
             text-align: center;
         }
 
-        /* Estilo para que los enlaces de marca no parezcan enlaces */
         .brand-link {
             text-decoration: none;
             color: inherit;
@@ -109,19 +109,19 @@
             align-items: center;
             text-transform: uppercase;
             transition: all 0.2s ease;
-            border: 2px solid transparent;
         }
 
+        /* BOTÓN DE COMPRA: Sin redondeo y borde más oscuro */
         .btn-main {
             background-color: var(--brand-color);
-            border-radius: 4px;
-            box-shadow: 0 4px 0 #c4911d;
-            margin-bottom: 10px;
+            border-radius: 0; /* Sin redondeo */
+            box-shadow: 0 5px 0 var(--brand-dark); /* Borde/Sombra más oscura */
+            margin-bottom: 12px;
         }
 
         .btn-main:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #c4911d;
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 var(--brand-dark);
         }
 
         .btn-secondary {
@@ -130,7 +130,6 @@
 
         .btn-link:hover {
             transform: scale(var(--hover-scale));
-            background-color: #f9f9f9;
         }
         
         .btn-main:hover {
@@ -210,12 +209,10 @@
 <body>
 
     <div class="container">
-        <!-- GIF con enlace -->
         <a href="preorder.html" class="brand-link">
             <img src="logo.gif" alt="Logo" class="logo-gif">
         </a>
         
-        <!-- Título con enlace -->
         <a href="preorder.html" class="brand-link">
             <h1>ESPAÑOLA</h1>
         </a>
