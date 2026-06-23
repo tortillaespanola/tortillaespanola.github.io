@@ -110,16 +110,20 @@
             transition: all 0.2s ease;
         }
 
-        /* BOTÓN DE COMPRA: Plano y cuadrado */
         .btn-main {
             background-color: var(--brand-color);
             border-radius: 0;
             margin-bottom: 12px;
-            box-shadow: none; /* Eliminada la sombra */
+            box-shadow: none;
         }
 
         .btn-secondary {
             border-bottom: 1px solid #eee;
+        }
+        
+        .btn-outline {
+            border: 1px solid #000;
+            margin-bottom: 5px;
         }
 
         .btn-link:hover {
@@ -215,10 +219,14 @@
         <div class="location-tag">Only in Basel</div>
 
         <div class="links-cascade">
-            <a href="preorder.html" class="btn-link btn-main">
+            <a href="precios.html" class="btn-link btn-outline">
+                <div>FORMATOS Y PRECIOS</div>
+            </a>
+
+            <a href="https://wa.me/41XXXXXXXXX?text=Hola!%20Quiero%20pedir%20una%20tortilla" class="btn-link btn-main" target="_blank">
                 <div>
-                    DO VORBESTELLE<br>
-                    <span class="small-text">I DESPERATELY NEED AN ESPAÑOLA FOR TOMORROW</span>
+                    PIDE O ESCRÍBEME POR WHATSAPP<br>
+                    <span class="small-text">I DESPERATELY NEED AN ESPAÑOLA</span>
                 </div>
             </a>
 
