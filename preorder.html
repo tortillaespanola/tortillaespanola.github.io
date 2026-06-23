@@ -3,190 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESPAÑOLA | Bestellung</title>
+    <title>ESPAÑOLA | Bestellig</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-primary: #000000;
+            --bg: #ffffff;
+            --ink: #000000;
+            --gold: #f0b323;
+            --gold-light: #ffc840;
+            --muted: #f5f5f5;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
+            background-color: var(--bg);
+            color: var(--ink);
             font-family: 'Space Mono', monospace;
             margin: 0;
             display: flex;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 48px 20px 140px;
         }
 
         .container {
             width: 100%;
-            max-width: 600px;
+            max-width: 560px;
             text-align: center;
         }
 
+        /* ── NAV ── */
         .back-link {
             text-decoration: none;
-            color: #000;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-bottom: 40px;
+            color: var(--ink);
+            font-size: 0.72rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 48px;
             text-transform: uppercase;
-            border-bottom: 1px solid #000;
+            letter-spacing: 2px;
+            opacity: 0.45;
+            transition: opacity 0.18s ease;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 2px;
         }
+        .back-link:hover { opacity: 1; }
 
+        /* ── HEADER ── */
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-size: clamp(1.8rem, 8vw, 2.6rem);
+            margin: 0 0 6px;
             text-transform: uppercase;
-            letter-spacing: -1px;
+            letter-spacing: 4px;
+            animation: fadeDown 0.5s ease both;
         }
 
         .subtitle-main {
-            font-size: 0.8rem;
-            margin-bottom: 50px;
+            font-size: 0.72rem;
             display: block;
-            opacity: 0.7;
+            opacity: 0.4;
+            letter-spacing: 3px;
+            margin-bottom: 52px;
+            text-transform: uppercase;
         }
 
+        /* ── PRODUCT CARDS ── */
         .product-card {
-            margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 8px;
+            padding: 28px 24px;
+            border: 1px solid #e8e8e8;
+            text-align: left;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 4px 16px;
+            align-items: center;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            animation: fadeUp 0.5s ease both;
         }
+
+        .product-card:hover {
+            border-color: var(--gold);
+            background: #fffdf5;
+        }
+
+        .product-card:nth-child(2) { animation-delay: 0.07s; }
+
+        .card-info { grid-column: 1; }
+        .card-qty  { grid-column: 2; grid-row: 1 / 3; align-self: center; }
 
         .weight-tag {
-            background-color: #000;
+            background-color: var(--ink);
             color: #fff;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 0.7rem;
             display: inline-block;
-            padding: 5px 15px;
-            margin-bottom: 10px;
+            padding: 3px 10px;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
         }
 
         .product-title {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.4rem;
-            margin: 5px 0 5px 0;
+            font-weight: 800;
+            font-size: 1.3rem;
+            margin: 0 0 2px;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .product-lang-sub {
             display: block;
-            font-size: 0.75rem;
-            margin-bottom: 15px;
+            font-size: 0.68rem;
             font-style: italic;
-            opacity: 0.8;
+            opacity: 0.5;
+            margin-bottom: 8px;
+            line-height: 1.5;
         }
 
         .price-tag {
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 15px;
+            font-weight: 800;
             display: block;
+            color: var(--ink);
         }
 
+        /* Quantity controls */
         .quantity-controls {
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 0;
+            border: 1.5px solid var(--ink);
         }
 
         .qty-btn {
-            background: #000;
+            background: var(--ink);
             color: #fff;
             border: none;
-            width: 35px;
-            height: 35px;
-            font-size: 1.2rem;
+            width: 36px;
+            height: 36px;
+            font-size: 1.1rem;
             cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            transition: background 0.15s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
+
+        .qty-btn:hover { background: #333; }
 
         .qty-val {
-            font-size: 1.3rem;
-            font-weight: 700;
-            min-width: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            min-width: 38px;
+            text-align: center;
+            padding: 0 4px;
         }
 
-        /* Sección Calendario */
+        /* ── DATE SECTION ── */
         .date-section {
-            margin: 40px 0;
-            padding: 20px;
-            border: 1px solid #000;
+            margin: 32px 0;
+            padding: 22px 24px;
+            border: 1px solid #e8e8e8;
             text-align: left;
+            animation: fadeUp 0.5s 0.15s ease both;
         }
 
         .date-section label {
             display: block;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
         input[type="date"] {
             width: 100%;
-            padding: 10px;
+            padding: 11px 14px;
             font-family: 'Space Mono', monospace;
-            border: 1px solid #000;
-            box-sizing: border-box;
+            font-size: 0.85rem;
+            border: 1.5px solid var(--ink);
+            background: var(--bg);
+            color: var(--ink);
+            outline: none;
+            transition: border-color 0.18s ease;
         }
 
+        input[type="date"]:focus { border-color: var(--gold); }
+
+        .date-hint {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.63rem;
+            opacity: 0.45;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── ORDER SUMMARY ── */
         .order-summary {
             position: sticky;
-            bottom: 20px;
-            background: #fff;
-            padding: 20px;
-            border: 2px solid #000;
-            margin-top: 40px;
-            box-shadow: 10px 10px 0px #000;
+            bottom: 0;
+            background: var(--bg);
+            padding: 20px 24px;
+            border-top: 2px solid var(--ink);
+            margin-top: 0;
+            animation: slideUp 0.5s 0.25s ease both;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 14px;
+        }
+
+        .summary-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
         }
 
         .total-price {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
         .weight-warning {
-            color: red;
-            font-size: 0.7rem;
-            margin-bottom: 10px;
+            color: #c0392b;
+            font-size: 0.68rem;
+            margin-bottom: 12px;
             display: none;
+            letter-spacing: 1px;
         }
 
         .btn-order {
-            display: inline-block;
-            background: #000;
-            color: #fff;
+            display: block;
+            background: var(--gold);
+            color: var(--ink);
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 17px 24px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-weight: 800;
+            font-size: 1rem;
             text-transform: uppercase;
-            width: 100%;
-            box-sizing: border-box;
+            letter-spacing: 2px;
             text-align: center;
+            cursor: pointer;
+            transition: background 0.18s ease, transform 0.18s ease;
+        }
+
+        .btn-order:hover:not(.disabled) {
+            background: var(--gold-light);
+            transform: translateY(-1px);
         }
 
         .btn-order.disabled {
-            background: #ccc;
+            background: #e8e8e8;
+            color: #aaa;
             pointer-events: none;
+            cursor: default;
         }
 
-        .footer-note { margin-top: 30px; font-size: 0.7rem; opacity: 0.7; }
+        .footer-note {
+            margin-top: 20px;
+            font-size: 0.65rem;
+            opacity: 0.4;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -195,91 +312,95 @@
         <a href="/" class="back-link">← Zurück / Back</a>
 
         <h1>BESTELLIG</h1>
-        <span class="subtitle-main">PRE-ORDER YOUR TORTILLA</span>
+        <span class="subtitle-main">Pre-order your tortilla</span>
 
         <div class="product-card">
-            <div class="weight-tag">1 KG</div>
-            <div class="product-title">LA GRANDE</div>
-            <span class="product-lang-sub">Das Meisterwerk zum Teilen / The masterpiece to share</span>
-            <span class="price-tag">CHF 29.00</span>
-            <div class="quantity-controls">
-                <button class="qty-btn" onclick="updateQty('grande', -1)">-</button>
-                <span class="qty-val" id="qty-grande">0</span>
-                <button class="qty-btn" onclick="updateQty('grande', 1)">+</button>
+            <div class="card-info">
+                <div class="weight-tag">1 KG</div>
+                <div class="product-title">LA GRANDE</div>
+                <span class="product-lang-sub">Das Meisterwerk zum Teilen · The masterpiece to share</span>
+                <span class="price-tag">CHF 29.00</span>
+            </div>
+            <div class="card-qty">
+                <div class="quantity-controls">
+                    <button class="qty-btn" onclick="updateQty('grande', -1)" aria-label="Weniger">−</button>
+                    <span class="qty-val" id="qty-grande">0</span>
+                    <button class="qty-btn" onclick="updateQty('grande', 1)" aria-label="Mehr">+</button>
+                </div>
             </div>
         </div>
 
         <div class="product-card">
-            <div class="weight-tag">1/2 KG</div>
-            <div class="product-title">LA MEDIANA</div>
-            <span class="product-lang-sub">Ideal für Paare / Ideal for couples</span>
-            <span class="price-tag">CHF 17.00</span>
-            <div class="quantity-controls">
-                <button class="qty-btn" onclick="updateQty('mediana', -1)">-</button>
-                <span class="qty-val" id="qty-mediana">0</span>
-                <button class="qty-btn" onclick="updateQty('mediana', 1)">+</button>
+            <div class="card-info">
+                <div class="weight-tag">½ KG</div>
+                <div class="product-title">LA MEDIANA</div>
+                <span class="product-lang-sub">Ideal für Paare · Ideal for couples</span>
+                <span class="price-tag">CHF 17.00</span>
+            </div>
+            <div class="card-qty">
+                <div class="quantity-controls">
+                    <button class="qty-btn" onclick="updateQty('mediana', -1)" aria-label="Weniger">−</button>
+                    <span class="qty-val" id="qty-mediana">0</span>
+                    <button class="qty-btn" onclick="updateQty('mediana', 1)" aria-label="Mehr">+</button>
+                </div>
             </div>
         </div>
 
         <div class="date-section">
-            <label for="delivery-date">Abholdatum / Pick-up Date (Di-Sa):</label>
+            <label for="delivery-date">Abholdatum · Pick-up Date</label>
             <input type="date" id="delivery-date" onchange="validateDate()">
-            <small style="display:block; margin-top:5px; font-size:0.65rem;">*Bestellungen bis 20:00 Uhr für den Folgetag.</small>
+            <span class="date-hint">Di – Sa · Bestellungen bis 20:00 Uhr für den Folgetag / Orders before 8 PM for next day</span>
         </div>
 
         <div class="order-summary">
-            <div class="total-price">TOTAL: CHF <span id="total-val">0.00</span></div>
-            <div class="weight-warning" id="warning">Max. 4kg | Nur Di-Sa möglich.</div>
-            <a href="#" id="whatsapp-btn" class="btn-order disabled" onclick="sendOrder()">BSTELLÄ VIA WHATSAPP</a>
+            <div class="summary-row">
+                <span class="summary-label">Total</span>
+                <span class="total-price">CHF <span id="total-val">0.00</span></span>
+            </div>
+            <div class="weight-warning" id="warning">⚠ Max. 4 kg · Nur Di–Sa möglich</div>
+            <a href="#" id="whatsapp-btn" class="btn-order disabled" onclick="sendOrder()">
+                Bstellä via WhatsApp →
+            </a>
         </div>
 
         <div class="footer-note">
-            Abholung in Basel nach Vereinbarung.<br>Pick-up in Basel by appointment.
+            Abholung in Basel nach Vereinbarung.<br>
+            Pick-up in Basel by appointment.
         </div>
     </div>
 
     <script>
         let order = { grande: 0, mediana: 0 };
-        const prices = { grande: 29, mediana: 17 };
+        const prices  = { grande: 29,  mediana: 17  };
         const weights = { grande: 1.0, mediana: 0.5 };
 
-        // Configurar restricciones del calendario al cargar
-        window.onload = function() {
+        window.onload = function () {
             const dateInput = document.getElementById('delivery-date');
-            let today = new Date();
-            let minDate = new Date();
-
-            // Si es después de las 20:00 (8 PM), la fecha mínima es en 2 días
-            if (today.getHours() >= 20) {
-                minDate.setDate(today.getDate() + 2);
-            } else {
-                minDate.setDate(today.getDate() + 1);
-            }
-
+            const today = new Date();
+            const minDate = new Date();
+            minDate.setDate(today.getDate() + (today.getHours() >= 20 ? 2 : 1));
             dateInput.min = minDate.toISOString().split('T')[0];
         };
 
         function validateDate() {
             const dateInput = document.getElementById('delivery-date');
-            const selectedDate = new Date(dateInput.value);
-            const day = selectedDate.getUTCDay(); // 0=Dom, 1=Lun, 2=Mar...
-
-            // Días permitidos: Martes (2) a Sábado (6)
+            const day = new Date(dateInput.value).getUTCDay();
             if (day === 0 || day === 1) {
-                alert("Entregas solo de Martes a Sábado / Lieferungen nur von Dienstag bis Samstag.");
-                dateInput.value = "";
+                alert('Nur Di–Sa möglich · Only Tue–Sat available.');
+                dateInput.value = '';
             }
             calculateTotal();
         }
 
         function updateQty(type, change) {
             const newQty = order[type] + change;
-            const potentialWeight = (type === 'grande' ? (order.grande + change) : order.grande) * 1 + 
-                                   (type === 'mediana' ? (order.mediana + change) : order.mediana) * 0.5;
+            const potentialWeight =
+                (type === 'grande'  ? order.grande  + change : order.grande)  * 1.0 +
+                (type === 'mediana' ? order.mediana + change : order.mediana) * 0.5;
 
             if (newQty >= 0 && potentialWeight <= 4.0) {
                 order[type] = newQty;
-                document.getElementById(`qty-${type}`).innerText = newQty;
+                document.getElementById(`qty-${type}`).textContent = newQty;
                 document.getElementById('warning').style.display = 'none';
             } else if (potentialWeight > 4.0) {
                 document.getElementById('warning').style.display = 'block';
@@ -291,30 +412,19 @@
             const total = (order.grande * prices.grande) + (order.mediana * prices.mediana);
             const dateValue = document.getElementById('delivery-date').value;
             const btn = document.getElementById('whatsapp-btn');
-            
-            document.getElementById('total-val').innerText = total.toFixed(2);
-            
-            // Habilitar botón solo si hay productos Y fecha
-            if (total > 0 && dateValue !== "") {
-                btn.classList.remove('disabled');
-            } else {
-                btn.classList.add('disabled');
-            }
+            document.getElementById('total-val').textContent = total.toFixed(2);
+            btn.classList.toggle('disabled', !(total > 0 && dateValue));
         }
 
         function sendOrder() {
-            const phone = "41772146639";
             const date = document.getElementById('delivery-date').value;
-            let message = `Griezi! Ich möchte gerne bestellen:\n\n`;
-            
-            if (order.grande > 0) message += `- ${order.grande}x LA GRANDE (1kg)\n`;
-            if (order.mediana > 0) message += `- ${order.mediana}x LA MEDIANA (1/2kg)\n`;
-            
-            message += `\nAbholdatum: ${date}\n`;
-            message += `Total: CHF ${document.getElementById('total-val').innerText}\n`;
-            message += `\nBitte bestätigen Sie mir den Termin. Danke!`;
-
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+            let msg = `Griezi! Ich möchte gerne bestellen:\n\n`;
+            if (order.grande  > 0) msg += `– ${order.grande}× LA GRANDE (1 kg)\n`;
+            if (order.mediana > 0) msg += `– ${order.mediana}× LA MEDIANA (½ kg)\n`;
+            msg += `\nAbholdatum: ${date}`;
+            msg += `\nTotal: CHF ${document.getElementById('total-val').textContent}`;
+            msg += `\n\nBitte bestätigen Sie mir den Termin. Danke!`;
+            window.open(`https://wa.me/41772146639?text=${encodeURIComponent(msg)}`, '_blank');
         }
     </script>
 </body>
