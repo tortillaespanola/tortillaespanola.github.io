@@ -9,100 +9,174 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-primary: #000000;
-            --accent-color: #ff0000; /* Color para el tag de novedad */
+            --bg: #ffffff;
+            --ink: #000000;
+            --gold: #f0b323;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
+            background-color: var(--bg);
+            color: var(--ink);
             font-family: 'Space Mono', monospace;
             margin: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            text-align: center;
-            padding: 40px 20px;
+            padding: 48px 24px 64px;
         }
 
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 480px;
         }
 
+        /* ── NAV ── */
         .back-link {
             text-decoration: none;
-            color: #000;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-bottom: 40px;
+            color: var(--ink);
+            font-size: 0.72rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 48px;
             text-transform: uppercase;
-            border-bottom: 1px solid #000;
+            letter-spacing: 2px;
+            opacity: 0.4;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 2px;
+            transition: opacity 0.18s ease;
+        }
+        .back-link:hover { opacity: 1; }
+
+        /* ── HEADER ── */
+        .page-eyebrow {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.4;
+            margin-bottom: 8px;
+            display: block;
+            animation: fadeDown 0.5s ease both;
         }
 
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 1.5rem;
-            margin-bottom: 50px;
-            letter-spacing: -1px;
+            font-size: clamp(1.4rem, 6vw, 1.9rem);
+            margin: 0 0 56px;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.15;
+            animation: fadeDown 0.5s 0.05s ease both;
         }
 
-        .section {
-            margin-bottom: 60px;
-            position: relative;
+        /* ── PLAYLIST ITEMS ── */
+        .playlist-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
         }
 
-        /* Estilo para la novedad */
+        .playlist-item {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 24px 0;
+            border-bottom: 1px solid #ebebeb;
+            animation: fadeUp 0.5s ease both;
+        }
+
+        .playlist-item:first-child { border-top: 1px solid #ebebeb; }
+
+        .playlist-item:nth-child(1) { animation-delay: 0.10s; }
+        .playlist-item:nth-child(2) { animation-delay: 0.17s; }
+        .playlist-item:nth-child(3) { animation-delay: 0.24s; }
+        .playlist-item:nth-child(4) { animation-delay: 0.31s; }
+
+        .playlist-info {
+            flex: 1;
+            text-align: left;
+        }
+
         .new-tag {
-            font-size: 0.7rem;
-            background: #000;
-            color: #fff;
+            font-size: 0.6rem;
+            background: var(--gold);
+            color: var(--ink);
             padding: 2px 8px;
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 700;
-        }
-
-        .section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 0 0 10px 0;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .section p {
-            font-size: 0.85rem;
-            line-height: 1.5;
-            margin: 0 auto 25px auto;
-            max-width: 90%;
+        .playlist-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            margin: 0 0 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .icon-row {
+        .playlist-desc {
+            font-size: 0.72rem;
+            line-height: 1.6;
+            opacity: 0.55;
+            margin: 0;
+            max-width: 30ch;
+        }
+
+        /* ── ICON LINKS ── */
+        .platform-links {
             display: flex;
-            gap: 30px;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            flex-shrink: 0;
+            padding-top: 2px;
         }
 
         .icon-link {
-            transition: transform 0.2s ease;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            opacity: 0.55;
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            font-size: 0.65rem;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ink);
         }
 
         .icon-link:hover {
-            transform: scale(1.15);
+            opacity: 1;
+            transform: translateX(2px);
         }
 
         .platform-icon {
-            width: 32px;
-            height: auto;
+            width: 20px;
+            height: 20px;
             display: block;
+            flex-shrink: 0;
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -111,61 +185,81 @@
     <div class="container">
         <a href="/" class="back-link">← Zurück</a>
 
-        <h1>THE MUSIC BEHIND THE PANS</h1>
+        <span class="page-eyebrow">Española · Kitchen Sounds</span>
+        <h1>THE MUSIC<br>BEHIND THE PANS</h1>
 
-        <div class="section">
-            <span class="new-tag">NEW</span>
-            <h2>The Peeling & Cutting Session</h2>
-            <p>Kitchen mindfulness in full effect. Press play and join the ritual of the perfect cut.</p>
-            <div class="icon-row">
-                <a href="https://open.spotify.com/playlist/3RbLc45Ii9pG3DvcUiSFJs?si=Y8MIJiugS2-8FtIfNbx_bg" class="icon-link" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" class="platform-icon">
-                </a>
-                <a href="https://www.youtube.com/watch?v=l5u9AMn30yY&list=PLdhZCagED9PdjTBkF3oXyh7URsHXXYFxj" class="icon-link" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" class="platform-icon">
-                </a>
+        <div class="playlist-list">
+
+            <div class="playlist-item">
+                <div class="playlist-info">
+                    <span class="new-tag">New</span>
+                    <div class="playlist-title">The Peeling &amp; Cutting Session</div>
+                    <p class="playlist-desc">Kitchen mindfulness in full effect. Press play and join the ritual of the perfect cut.</p>
+                </div>
+                <div class="platform-links">
+                    <a href="https://open.spotify.com/playlist/3RbLc45Ii9pG3DvcUiSFJs?si=Y8MIJiugS2-8FtIfNbx_bg" class="icon-link" target="_blank" rel="noopener" aria-label="Spotify">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="" class="platform-icon">
+                        Spotify
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=l5u9AMn30yY&list=PLdhZCagED9PdjTBkF3oXyh7URsHXXYFxj" class="icon-link" target="_blank" rel="noopener" aria-label="YouTube">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="" class="platform-icon">
+                        YouTube
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div class="section">
-            <h2>ESPAÑOLA</h2>
-            <p>Raw, intimate, and a bit reckless. This is the pulse behind the pans—the underground sounds that fueled the project and keep the kitchen alive. Flip it, fry it, feel it.</p>
-            <div class="icon-row">
-                <a href="https://open.spotify.com/playlist/5EQHKVR6vCAg1BYUvZab5H?si=c0D7xQXuQV6uw-BsX5Rx5w" class="icon-link" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" class="platform-icon">
-                </a>
-                <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PdY27EsqFlJaiYgb8_cwEsK" class="icon-link" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" class="platform-icon">
-                </a>
+            <div class="playlist-item">
+                <div class="playlist-info">
+                    <div class="playlist-title">ESPAÑOLA</div>
+                    <p class="playlist-desc">Raw, intimate, a bit reckless. The underground sounds that fueled the project.</p>
+                </div>
+                <div class="platform-links">
+                    <a href="https://open.spotify.com/playlist/5EQHKVR6vCAg1BYUvZab5H?si=c0D7xQXuQV6uw-BsX5Rx5w" class="icon-link" target="_blank" rel="noopener" aria-label="Spotify">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="" class="platform-icon">
+                        Spotify
+                    </a>
+                    <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PdY27EsqFlJaiYgb8_cwEsK" class="icon-link" target="_blank" rel="noopener" aria-label="YouTube Music">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="" class="platform-icon">
+                        YouTube
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div class="section">
-            <h2>Ñ-Bonus-tracks</h2>
-            <p>Data breach: The Ñ hidden B-sides. Out of place.</p>
-            <div class="icon-row">
-                <a href="https://open.spotify.com/playlist/2iMYMQNeT5LB7RmpBgjXag?si=1HZB5deyRiW8xMo8vshJWw" class="icon-link" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" class="platform-icon">
-                </a>
-                <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PfoKqLTcsx-HquH24rXY_5e" class="icon-link" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" class="platform-icon">
-                </a>
+            <div class="playlist-item">
+                <div class="playlist-info">
+                    <div class="playlist-title">Ñ — Bonus Tracks</div>
+                    <p class="playlist-desc">Data breach: the hidden B-sides. Out of place, out of time.</p>
+                </div>
+                <div class="platform-links">
+                    <a href="https://open.spotify.com/playlist/2iMYMQNeT5LB7RmpBgjXag?si=1HZB5deyRiW8xMo8vshJWw" class="icon-link" target="_blank" rel="noopener" aria-label="Spotify">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="" class="platform-icon">
+                        Spotify
+                    </a>
+                    <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PfoKqLTcsx-HquH24rXY_5e" class="icon-link" target="_blank" rel="noopener" aria-label="YouTube Music">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="" class="platform-icon">
+                        YouTube
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div class="section">
-            <h2>Ñ - Vintage</h2>
-            <p>Analog soul: tapes from another Spain.</p>
-            <div class="icon-row">
-                <a href="https://open.spotify.com/playlist/3Ke8g1k9nlTbZRsbYfh7yg?si=3EgUsrddTviKw5rJD2IPmQ" class="icon-link" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" class="platform-icon">
-                </a>
-                <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PdOMIMoPn9h8INBzKFgx8HD" class="icon-link" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" class="platform-icon">
-                </a>
+            <div class="playlist-item">
+                <div class="playlist-info">
+                    <div class="playlist-title">Ñ — Vintage</div>
+                    <p class="playlist-desc">Analog soul: tapes from another Spain.</p>
+                </div>
+                <div class="platform-links">
+                    <a href="https://open.spotify.com/playlist/3Ke8g1k9nlTbZRsbYfh7yg?si=3EgUsrddTviKw5rJD2IPmQ" class="icon-link" target="_blank" rel="noopener" aria-label="Spotify">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="" class="platform-icon">
+                        Spotify
+                    </a>
+                    <a href="https://music.youtube.com/playlist?list=PLdhZCagED9PdOMIMoPn9h8INBzKFgx8HD" class="icon-link" target="_blank" rel="noopener" aria-label="YouTube Music">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="" class="platform-icon">
+                        YouTube
+                    </a>
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
 
 </body>
