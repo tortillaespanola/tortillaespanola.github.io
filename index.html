@@ -9,15 +9,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Space+Mono:wght@400;700&family=Inter:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-primary: #000000;
-            --brand-color: #f0b323; 
-            --hover-scale: 1.03;
+            --bg: #ffffff;
+            --ink: #000000;
+            --gold: #f0b323;
+            --gold-light: #ffc840;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
+            background-color: var(--bg);
+            color: var(--ink);
             font-family: 'Inter', sans-serif;
             margin: 0;
             display: flex;
@@ -29,236 +37,283 @@
         .container {
             width: 100%;
             max-width: 600px;
-            padding: 40px 20px;
-            box-sizing: border-box;
+            padding: 56px 24px 48px;
             text-align: center;
         }
 
+        /* ── LOGO ── */
         .brand-link {
             text-decoration: none;
             color: inherit;
             display: inline-block;
-            transition: opacity 0.2s ease;
-        }
-
-        .brand-link:hover {
-            opacity: 0.8;
         }
 
         .logo-gif {
-            width: 360px;
-            max-width: 85%;
+            width: 320px;
+            max-width: 80%;
             height: auto;
-            margin: 0 auto 30px;
+            margin: 0 auto 24px;
             display: block;
+            animation: fadeDown 0.6s ease both;
         }
 
+        /* ── HEADER ── */
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: clamp(2.5rem, 10vw, 4rem);
+            font-size: clamp(2.6rem, 11vw, 4.2rem);
             margin: 0;
-            letter-spacing: 4px; 
+            letter-spacing: 6px;
             text-transform: uppercase;
-            padding-left: 4px;
+            animation: fadeDown 0.6s 0.1s ease both;
         }
 
         .description {
             font-family: 'Space Mono', monospace;
-            font-weight: 700;
+            font-weight: 400;
             margin-top: 10px;
-            margin-bottom: 15px;
-            font-size: clamp(0.9rem, 4vw, 1.1rem);
-            letter-spacing: 2px;
+            margin-bottom: 16px;
+            font-size: clamp(0.8rem, 3.5vw, 1rem);
+            letter-spacing: 3px;
+            opacity: 0.55;
+            animation: fadeDown 0.6s 0.2s ease both;
         }
 
         .location-tag {
             font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             font-weight: 700;
-            background: var(--brand-color);
+            background: var(--gold);
             color: #000;
-            padding: 6px 14px;
+            padding: 5px 14px;
             display: inline-block;
-            margin-bottom: 50px;
+            margin-bottom: 52px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            animation: fadeDown 0.6s 0.3s ease both;
         }
 
+        /* ── BUTTONS ── */
         .links-cascade {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 0;
             align-items: center;
+            animation: fadeUp 0.6s 0.4s ease both;
         }
 
         .btn-link {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             text-decoration: none;
-            color: #000;
-            padding: 18px 20px;
+            color: var(--ink);
+            padding: 20px 24px;
             width: 100%;
-            max-width: 400px;
-            box-sizing: border-box;
-            font-size: 1.1rem;
+            max-width: 420px;
+            font-size: 1rem;
             line-height: 1.2;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             text-transform: uppercase;
-            transition: all 0.2s ease;
+            transition: background 0.18s ease, padding-left 0.18s ease, padding-right 0.18s ease;
+            border-bottom: 1px solid #e8e8e8;
+            position: relative;
         }
 
-        .btn-main {
-            background-color: var(--brand-color);
-            border-radius: 0;
-            margin-bottom: 12px;
-        }
-
-        .btn-secondary {
-            border-bottom: 1px solid #eee;
+        .btn-link .btn-arrow {
+            font-size: 1rem;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            flex-shrink: 0;
         }
 
         .btn-link:hover {
-            transform: scale(var(--hover-scale));
+            background: #f9f9f9;
+            padding-left: 30px;
+            padding-right: 18px;
         }
-        
+
+        .btn-link:hover .btn-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .btn-main {
+            background-color: var(--gold);
+            border-bottom: none;
+            margin-bottom: 16px;
+            margin-top: 4px;
+        }
+
         .btn-main:hover {
-            background-color: #ffc233;
+            background-color: var(--gold-light);
+            padding-left: 30px;
+        }
+
+        .btn-text-wrap {
+            text-align: left;
         }
 
         .small-text {
             display: block;
-            font-size: 0.7rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
             font-weight: 400;
-            margin-top: 4px;
+            margin-top: 3px;
             text-transform: none;
-            opacity: 0.8;
+            opacity: 0.55;
+            letter-spacing: 0.5px;
         }
 
+        /* ── MANIFESTO ── */
         .stubborn-section {
-            margin-top: 60px;
-            margin-bottom: 30px;
-            max-width: 420px;
+            margin-top: 64px;
+            margin-bottom: 32px;
+            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
             text-align: left;
-            border-left: 3px solid var(--brand-color);
-            padding-left: 25px;
+            border-left: 3px solid var(--gold);
+            padding-left: 22px;
+            animation: fadeUp 0.6s 0.6s ease both;
         }
 
         .stubborn-title {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
+            font-weight: 800;
+            font-size: 0.72rem;
             text-transform: uppercase;
-            margin-bottom: 8px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            opacity: 0.45;
         }
 
         .stubborn-text {
             font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            font-size: 0.82rem;
+            line-height: 1.7;
+            margin-bottom: 14px;
         }
 
         .stubborn-quote {
             font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
+            font-size: 0.76rem;
             font-style: italic;
-            opacity: 0.7;
+            opacity: 0.5;
             display: block;
+            line-height: 1.6;
         }
 
+        /* ── FOOTER ── */
         .footer-links {
-            margin-top: 40px;
+            margin-top: 44px;
+            animation: fadeUp 0.6s 0.7s ease both;
         }
 
         .footer-link-item {
             font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
-            color: #000;
+            font-size: 0.68rem;
+            color: var(--ink);
             text-decoration: none;
             text-transform: uppercase;
-            opacity: 0.5;
+            letter-spacing: 1px;
+            opacity: 0.35;
+            transition: opacity 0.18s ease;
         }
 
-        .footer-link-item:hover {
-            opacity: 1;
-        }
+        .footer-link-item:hover { opacity: 1; }
 
         .footer {
-            margin-top: 20px;
-            font-size: 0.7rem;
+            margin-top: 16px;
+            font-size: 0.65rem;
             font-family: 'Space Mono', monospace;
-            color: #000;
+            color: var(--ink);
             text-transform: uppercase;
-            opacity: 0.4;
+            letter-spacing: 1px;
+            opacity: 0.25;
+            animation: fadeUp 0.6s 0.8s ease both;
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+
         <a href="preorder.html" class="brand-link">
-            <img src="logo.gif" alt="Logo" class="logo-gif">
+            <img src="logo.gif" alt="Española Logo" class="logo-gif">
         </a>
-        
+
         <a href="preorder.html" class="brand-link">
             <h1>ESPAÑOLA</h1>
         </a>
 
-        <p class="description">-- SPANISCHE TORTILLA --</p>
+        <p class="description">── SPANISCHE TORTILLA ──</p>
         <div class="location-tag">Only in Basel</div>
 
         <div class="links-cascade">
-            <!-- Formatos y precios -->
+
             <a href="preorder.html" class="btn-link btn-secondary">
-                <div>
-                    FORMAT U PRYS<br>
-                    <span class="small-text">FORMATS AND PRICES</span>
+                <div class="btn-text-wrap">
+                    FORMAT U PRYS
+                    <span class="small-text">Formats und Preise · Formats and prices</span>
                 </div>
+                <span class="btn-arrow">→</span>
             </a>
 
-            <!-- WhatsApp -->
-            <a href="https://wa.me/+41772146639" class="btn-link btn-main" target="_blank">
-                <div>
-                    BSCHTELL ODER WHATSAPP<br>
-                    <span class="small-text">ORDER OR CONTACT VIA WHATSAPP</span>
+            <a href="https://wa.me/+41772146639" class="btn-link btn-main" target="_blank" rel="noopener">
+                <div class="btn-text-wrap">
+                    BSCHTELL VIA WHATSAPP
+                    <span class="small-text">Bestellen oder Fragen stellen · Order or ask</span>
                 </div>
+                <span class="btn-arrow">→</span>
             </a>
 
-            <a href="https://instagram.com/hola.espanola.ch" class="btn-link btn-secondary" target="_blank">
-                <div>
-                    INSTAGRAM<br>
+            <a href="https://instagram.com/hola.espanola.ch" class="btn-link btn-secondary" target="_blank" rel="noopener">
+                <div class="btn-text-wrap">
+                    INSTAGRAM
                     <span class="small-text">@hola.espanola.ch</span>
                 </div>
+                <span class="btn-arrow">→</span>
             </a>
 
             <a href="playlists.html" class="btn-link btn-secondary">
-                <div>
-                    KITCHEN'S PLAYLIST<br>
-                    <span class="small-text">THE MUSIC BEHIND DE PANS</span>
+                <div class="btn-text-wrap">
+                    KITCHEN'S PLAYLIST
+                    <span class="small-text">The music behind the pans</span>
                 </div>
+                <span class="btn-arrow">→</span>
             </a>
 
             <a href="mailto:hola@espanola.ch" class="btn-link btn-secondary">
-                <div>
-                    SCHRYB MIR UFF D'MAIL<br>
-                    <span class="small-text">DROP ME A LINE</span>
+                <div class="btn-text-wrap">
+                    SCHRYB MIR UFF D'MAIL
+                    <span class="small-text">hola@espanola.ch</span>
                 </div>
+                <span class="btn-arrow">→</span>
             </a>
+
         </div>
 
         <div class="stubborn-section">
-            <div class="stubborn-title">SPANISCHI STUURHAIT</div>
+            <div class="stubborn-title">Spanischi Stuurhait</div>
             <div class="stubborn-text">
-                Basel’s local stuff, Spanish liquid gold, and a lot of Spanish stubbornness.
+                Basel's local stuff, Spanish liquid gold, and a lot of Spanish stubbornness.
             </div>
-            <div class="stubborn-quote">
-                "You can’t rush a masterpiece and you can’t mass-produce a soul."
-            </div>
+            <span class="stubborn-quote">
+                "You can't rush a masterpiece and<br>you can't mass-produce a soul."
+            </span>
         </div>
 
         <div class="footer-links">
@@ -268,6 +323,7 @@
         <div class="footer">
             &copy; 2026 ESPAÑOLA | BASEL, CH
         </div>
+
     </div>
 
 </body>
