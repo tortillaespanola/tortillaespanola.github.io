@@ -96,6 +96,12 @@
             margin-top: 22px;
         }
 
+        .dash { display: inline; }
+
+        @media (max-width: 480px) {
+            .dash { display: none; }
+        }
+
         .location-tag {
             font-family: 'Space Mono', monospace;
             font-size: 0.68rem;
@@ -294,7 +300,7 @@
                 <span class="hero-company">Company</span>
                 <span class="hero-valencia">Valencia</span>
             </div>
-            <span class="hero-descriptor">── Valencianische Paella ──</span>
+            <span class="hero-descriptor"><span class="dash">── </span>Valencianische Paella<span class="dash"> ──</span></span>
             <div class="location-tag">Live · Basel · Open Air</div>
         </div>
 
