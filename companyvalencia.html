@@ -23,8 +23,12 @@
             * { animation: none !important; transition: none !important; }
         }
 
-        body {
+        html {
             background-color: var(--sun);
+        }
+
+        body {
+            background-color: transparent;
             color: var(--ink);
             font-family: 'Space Mono', monospace;
             margin: 0;
@@ -256,6 +260,7 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
+            display: block;
         }
 
         .container { position: relative; z-index: 1; }
@@ -300,7 +305,7 @@
             <span class="concept-label">Was ist das</span>
             <p class="concept-text">
                 Kein Catering. Kein Buffet.<br>
-                Eine Paella, live gekocht — in Ihrem Hof, Ihrem Garten, Ihrem Fest.<br>
+                Eine Paella, live gekocht — in deinem Hof, deinem Garten, deinem Fest.<br>
                 Echter Reis, echtes Feuer, valencianischer Eigensinn.
             </p>
         </div>
