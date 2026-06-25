@@ -13,7 +13,7 @@
             --sun-d:  #e0d010;
             --ink:    #0f0d00;
             --red:    #42a7c6;
-            --muted:  rgba(15,13,0,0.45);
+            --muted:  rgba(15,13,0,0.68);
             --line:   rgba(15,13,0,0.12);
         }
 
@@ -206,11 +206,12 @@
         .small-text {
             display: block;
             font-family: 'Space Mono', monospace;
-            font-size: 0.62rem;
+            font-size: 0.72rem;
             font-weight: 400;
-            margin-top: 3px;
+            margin-top: 4px;
             text-transform: none;
             color: var(--muted);
+            letter-spacing: 0.3px;
         }
 
         /* CTA — negro sobre amarillo invertido */
@@ -384,12 +385,12 @@
                 return {
                     x:       Math.random() * window.innerWidth,
                     y:       Math.random() * window.innerHeight,
-                    w:       8  + Math.random() * 7,
-                    h:       20 + Math.random() * 16,
+                    w:       10 + Math.random() * 8,
+                    h:       24 + Math.random() * 18,
                     angle:   Math.random() * Math.PI,
                     speed:   0.18 + Math.random() * 0.28,
                     drift:   (Math.random() - 0.5) * 0.18,
-                    opacity: 0.45 + Math.random() * 0.35,
+                    opacity: 0.62 + Math.random() * 0.28,
                     wobble:  Math.random() * Math.PI * 2,
                     wobbleSpeed: 0.008 + Math.random() * 0.012,
                 };
