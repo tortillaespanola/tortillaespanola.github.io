@@ -10,17 +10,16 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.espanola.ch/">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="ESPAÑOLA | Spanische Tortilla · Basel">
     <meta property="og:description" content="Hausgemachte spanische Tortilla in Basel. Bestellen und abholen — authentisch, handgemacht, nur in Basel.">
     <meta property="og:url" content="https://www.espanola.ch/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_CH">
 
-    <!-- Twitter/X -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="ESPAÑOLA | Spanische Tortilla · Basel">
     <meta name="twitter:description" content="Hausgemachte spanische Tortilla in Basel. Bestellen und abholen.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Space+Mono:wght@400;700&family=Inter:wght@400&display=swap" rel="stylesheet">
@@ -32,9 +31,7 @@
             --gold-light: #ffc840;
         }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { box-sizing: border-box; }
 
         @media (prefers-reduced-motion: reduce) {
             * { animation: none !important; transition: none !important; }
@@ -58,7 +55,6 @@
             text-align: center;
         }
 
-        /* ── LOGO ── */
         .brand-link {
             text-decoration: none;
             color: inherit;
@@ -74,7 +70,6 @@
             animation: fadeDown 0.6s ease both;
         }
 
-        /* ── HEADER ── */
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
@@ -110,7 +105,6 @@
             animation: fadeDown 0.6s 0.3s ease both;
         }
 
-        /* ── BUTTONS ── */
         .links-cascade {
             display: flex;
             flex-direction: column;
@@ -169,9 +163,7 @@
             padding-left: 30px;
         }
 
-        .btn-text-wrap {
-            text-align: left;
-        }
+        .btn-text-wrap { text-align: left; }
 
         .small-text {
             display: block;
@@ -223,6 +215,85 @@
             line-height: 1.6;
         }
 
+        /* ── CROSS-LINK ── */
+        .xlink-wrapper {
+            max-width: 420px;
+            margin: 48px auto 0;
+            animation: fadeUp 0.6s 0.65s ease both;
+        }
+
+        .xlink-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: #000;
+            background: #fff;
+            border: 1.5px solid #000;
+            border-left: 5px solid #f8e71c;
+            transition: transform 0.18s ease, background 0.18s ease;
+        }
+
+        .xlink-banner:hover {
+            transform: translateX(4px);
+            background: #fafafa;
+        }
+
+        .xlink-pill {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            font-weight: 700;
+            background: #f8e71c;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .xlink-eyebrow {
+            display: block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.45;
+            margin-bottom: 5px;
+        }
+
+        .xlink-title {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .xlink-sub {
+            display: block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.62rem;
+            margin-top: 4px;
+            opacity: 0.5;
+            letter-spacing: 0.5px;
+        }
+
+        .xlink-arrow {
+            font-size: 1.4rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-left: 16px;
+            transition: transform 0.18s ease;
+        }
+
+        .xlink-banner:hover .xlink-arrow {
+            transform: translateX(4px);
+        }
+
         /* ── FOOTER ── */
         .footer-links {
             margin-top: 44px;
@@ -253,7 +324,6 @@
             animation: fadeUp 0.6s 0.8s ease both;
         }
 
-        /* ── ANIMATIONS ── */
         @keyframes fadeDown {
             from { opacity: 0; transform: translateY(-12px); }
             to   { opacity: 1; transform: translateY(0); }
@@ -331,6 +401,18 @@
             <span class="stubborn-quote">
                 "You can't rush a masterpiece and<br>you can't mass-produce a soul."
             </span>
+        </div>
+
+        <div class="xlink-wrapper">
+            <a href="https://www.paellabasel.ch" class="xlink-banner" target="_blank" rel="noopener">
+                <div>
+                    <span class="xlink-pill">Same hands · Gleiche Händ</span>
+                    <span class="xlink-eyebrow">Showcooking · Basel · Open Air</span>
+                    <span class="xlink-title">Company Valencia</span>
+                    <span class="xlink-sub">Valencianische Paella · Live vor Ort · paellabasel.ch</span>
+                </div>
+                <span class="xlink-arrow">→</span>
+            </a>
         </div>
 
         <div class="footer-links">
