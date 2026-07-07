@@ -174,47 +174,6 @@
             padding: 0 4px;
         }
 
-        /* ── DATE SECTION ── */
-        .date-section {
-            margin: 32px 0;
-            padding: 22px 24px;
-            border: 1px solid #e8e8e8;
-            text-align: left;
-            animation: fadeUp 0.5s 0.15s ease both;
-        }
-
-        .date-section label {
-            display: block;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 0.78rem;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
-        input[type="date"] {
-            width: 100%;
-            padding: 11px 14px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            border: 1.5px solid var(--ink);
-            background: var(--bg);
-            color: var(--ink);
-            outline: none;
-            transition: border-color 0.18s ease;
-        }
-
-        input[type="date"]:focus { border-color: var(--gold); }
-
-        .date-hint {
-            display: block;
-            margin-top: 8px;
-            font-size: 0.63rem;
-            opacity: 0.45;
-            letter-spacing: 0.5px;
-        }
-
         /* ── ORDER SUMMARY ── */
         .order-summary {
             position: sticky;
@@ -222,7 +181,7 @@
             background: var(--bg);
             padding: 20px 24px;
             border-top: 2px solid var(--ink);
-            margin-top: 0;
+            margin-top: 32px;
             animation: slideUp 0.5s 0.25s ease both;
         }
 
@@ -346,26 +305,20 @@
             </div>
         </div>
 
-        <div class="date-section">
-            <label for="delivery-date">Abholdatum · Pick-up Date</label>
-            <input type="date" id="delivery-date" onchange="validateDate()">
-            <span class="date-hint">Di – Sa · Bestellungen bis 20:00 Uhr für den Folgetag / Orders before 8 PM for next day</span>
-        </div>
-
         <div class="order-summary">
             <div class="summary-row">
                 <span class="summary-label">Total</span>
                 <span class="total-price">CHF <span id="total-val">0.00</span></span>
             </div>
-            <div class="weight-warning" id="warning">⚠ Max. 4 kg · Nur Di–Sa möglich</div>
+            <div class="weight-warning" id="warning">⚠ Max. 4 kg pro Bestellung</div>
             <a href="#" id="whatsapp-btn" class="btn-order disabled" onclick="sendOrder()">
                 Bstellä via WhatsApp →
             </a>
         </div>
 
         <div class="footer-note">
-            Abholung in Basel nach Vereinbarung.<br>
-            Pick-up in Basel by appointment.
+            Abholdatum wird via WhatsApp vereinbart.<br>
+            Pick-up date arranged via WhatsApp. Di–Sa in Basel.
         </div>
     </div>
 
@@ -373,24 +326,6 @@
         let order = { grande: 0, mediana: 0 };
         const prices  = { grande: 29,  mediana: 17  };
         const weights = { grande: 1.0, mediana: 0.5 };
-
-        window.onload = function () {
-            const dateInput = document.getElementById('delivery-date');
-            const today = new Date();
-            const minDate = new Date();
-            minDate.setDate(today.getDate() + (today.getHours() >= 20 ? 2 : 1));
-            dateInput.min = minDate.toISOString().split('T')[0];
-        };
-
-        function validateDate() {
-            const dateInput = document.getElementById('delivery-date');
-            const day = new Date(dateInput.value).getUTCDay();
-            if (day === 0 || day === 1) {
-                alert('Nur Di–Sa möglich · Only Tue–Sat available.');
-                dateInput.value = '';
-            }
-            calculateTotal();
-        }
 
         function updateQty(type, change) {
             const newQty = order[type] + change;
@@ -410,20 +345,17 @@
 
         function calculateTotal() {
             const total = (order.grande * prices.grande) + (order.mediana * prices.mediana);
-            const dateValue = document.getElementById('delivery-date').value;
             const btn = document.getElementById('whatsapp-btn');
             document.getElementById('total-val').textContent = total.toFixed(2);
-            btn.classList.toggle('disabled', !(total > 0 && dateValue));
+            btn.classList.toggle('disabled', !(total > 0));
         }
 
         function sendOrder() {
-            const date = document.getElementById('delivery-date').value;
             let msg = `Griezi! Ich möchte gerne bestellen:\n\n`;
             if (order.grande  > 0) msg += `– ${order.grande}× LA GRANDE (1 kg)\n`;
             if (order.mediana > 0) msg += `– ${order.mediana}× LA MEDIANA (½ kg)\n`;
-            msg += `\nAbholdatum: ${date}`;
             msg += `\nTotal: CHF ${document.getElementById('total-val').textContent}`;
-            msg += `\n\nBitte bestätigen Sie mir den Termin. Danke!`;
+            msg += `\n\nWann könnte ich die Tortilla abholen? Danke!`;
             window.open(`https://wa.me/41772146639?text=${encodeURIComponent(msg)}`, '_blank');
         }
     </script>
