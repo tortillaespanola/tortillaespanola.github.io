@@ -50,61 +50,6 @@
             min-height: 100vh;
         }
 
-        /* ── VACATION MARQUEE BANNER ── */
-        .vacation-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 40px;
-            background-color: #000;
-            overflow: hidden;
-            white-space: nowrap;
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid var(--gold);
-        }
-
-        .vacation-banner__track {
-            display: inline-flex;
-            align-items: center;
-            white-space: nowrap;
-            animation: marquee 26s linear infinite;
-            will-change: transform;
-        }
-
-        .vacation-banner__item {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            font-size: 0.78rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-            padding: 0 28px;
-            flex-shrink: 0;
-        }
-
-        .vacation-banner__item .sep {
-            color: #fff;
-            opacity: 0.5;
-            margin: 0 24px;
-        }
-
-        @keyframes marquee {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-50%); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .vacation-banner__track {
-                animation: none;
-                overflow-x: auto;
-            }
-        }
-
-        body { padding-top: 40px; }
-
         .container {
             width: 100%;
             max-width: 600px;
@@ -392,15 +337,6 @@
     </style>
 </head>
 <body>
-
-    <div class="vacation-banner" role="status" aria-label="Ferien-Hinweis / Holiday notice">
-        <div class="vacation-banner__track">
-            <span class="vacation-banner__item">GESCHLOSSEN WEGEN FERIEN VOM 14. JULI BIS 04. AUGUST<span class="sep">✦</span>CLOSED FOR HOLIDAYS FROM JULY 14 TO AUGUST 04</span>
-            <span class="vacation-banner__item">GESCHLOSSEN WEGEN FERIEN VOM 14. JULI BIS 04. AUGUST<span class="sep">✦</span>CLOSED FOR HOLIDAYS FROM JULY 14 TO AUGUST 04</span>
-            <span class="vacation-banner__item">GESCHLOSSEN WEGEN FERIEN VOM 14. JULI BIS 04. AUGUST<span class="sep">✦</span>CLOSED FOR HOLIDAYS FROM JULY 14 TO AUGUST 04</span>
-            <span class="vacation-banner__item">GESCHLOSSEN WEGEN FERIEN VOM 14. JULI BIS 04. AUGUST<span class="sep">✦</span>CLOSED FOR HOLIDAYS FROM JULY 14 TO AUGUST 04</span>
-        </div>
-    </div>
 
     <div class="container">
 
